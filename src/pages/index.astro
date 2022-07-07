@@ -1,0 +1,238 @@
+---
+import Head from "./Layout/Head.astro"
+import Header from "./Components/Header.astro"
+import Footer from "./Components/Footer.astro"
+---
+
+
+<Head></Head>
+
+<body>
+	<Header></Header>
+    <main>
+			<section class="main-section">
+				<div class="text-box">
+					<div class="big-text"><p>A community built for
+						<br>all the international students.</p></div>
+					<div class="small-text"><p>Dear freshmen,<br>
+						Even the greatest were beginners.<br>
+						Follow our lead to find  yourself.</p></div>
+					<div class="cool-button-box">
+					<a class="cool-button">Explore Articles<span>>></span></a>
+						</div>
+				</div>
+				<div class="paint">
+					<img src="img/paint.png" alt="">
+				</div>
+			</section>
+            <section class="sec-section">
+				<div class="club">
+					<img src="img/club.png" alt="">
+				</div>
+                <div class="sec-text-box">
+					<div class="big-text"><p>Don't Waste Your Time!!
+                        <br>Join Our Clubs</p></div>
+					<div class="small-text"><p>Dear freshmen,<br>
+						Even the greatest were beginners.<br>
+						Follow our lead to find  yourself.</p></div>
+					<div class="cool-button-box">
+					<a class="sec-cool-button"><span> << </span>Explore Clubs</a>
+						</div>
+				</div>
+			</section>
+            <section class="third-section">
+				<div class="text-box">
+					<div class="big-text"><p>Read Our Blogs</p></div>
+					<div class="small-text"><p>Dear freshmen,<br>
+						Even the greatest were beginners.<br>
+						Follow our lead to find  yourself.</p></div>
+					<div class="cool-button-box">
+					<a class="cool-button">Explore Articles<span>>></span></a>
+						</div>
+				</div>
+				<div class="paint">
+					<img src="img/career.png" alt="">
+				</div>
+			</section>
+            <section class="fourth-section">
+				<div class="club">
+					<img src="img/podcast.png" alt="">
+				</div>
+                <div class="sec-text-box">
+					<div class="big-text"><p>Don't Waste Your Time!!
+                        <br>Listen To Podcasts</p></div>
+					<div class="small-text"><p>Dear freshmen,<br>
+						Even the greatest were beginners.<br>
+						Follow our lead to find  yourself.</p></div>
+					<div class="cool-button-box">
+                        <a class="sec-cool-button"><span> << </span>Explore Clubs</a>
+						</div>
+				</div>
+			</section>
+            <section class="final-section">
+                <div class="newsletter"></div>
+                <Footer></Footer>
+			</section>
+        </main>
+	</body>
+
+<style>
+
+.final-section{
+    flex-direction: column;
+    align-items: flex-start !important;
+}
+
+.newsletter{
+    height: 40%;
+    width: 100vw;
+    background-color: #333;
+    display: flex;
+    font-family: 'Poppins';
+}
+
+
+html{
+	margin: 0;
+	padding: 0;
+    overflow-y: hidden;
+}
+
+body{
+    margin: 0;
+	width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+}
+
+main section {
+    scroll-snap-align: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.text-box {
+    z-index: 5;
+    margin-left: 12rem;
+}
+
+.big-text {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2.125rem;
+    line-height: 2.5rem;
+}
+
+.small-text {
+    margin-top: 32px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.cool-button, .sec-cool-button {
+    text-decoration: none;
+    color: #333;
+    z-index: 10;
+    font-family: 'Poppins';
+    margin-top: 10px;
+    width: 315px;
+    height: 50px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: all 0.5s ease-in;
+}
+
+.cool-button span {
+    font-family: 'Poppins';
+    font-size: 30px;
+    color: black;
+    animation: arrow-animation 2s infinite alternate;
+}
+
+.cool-button:hover {
+    transform: scale(1.1);
+}
+
+@keyframes arrow-animation {
+    0% {
+        transform: translateX(0px);
+    }
+    100% {
+        transform: translateX(-50px);
+    }
+
+}
+
+.paint {
+    margin-right: 10rem;
+    z-index: 5;
+}
+
+section img{
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), #e0f4ff);
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border-radius: 2rem;
+    width: 512px;
+    height: auto;
+    animation: paint-animation 2s infinite alternate;
+}
+
+@keyframes paint-animation {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(-50px);
+    }
+
+}
+
+.club {
+    margin-left: 12rem;
+}
+
+.sec-text-box{
+    margin-right: 15rem;
+
+}
+
+.sec-cool-button span {
+    font-family: 'Poppins';
+    font-size: 30px;
+    color: black;
+    animation: sec-arrow-animation 2s infinite alternate;
+}
+
+@keyframes sec-arrow-animation {
+    0% {
+        transform: translateX(0px);
+    }
+    100% {
+        transform: translateX(50px);
+    }
+
+}
+
+
+</style>
