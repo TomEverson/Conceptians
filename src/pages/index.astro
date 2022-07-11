@@ -7,10 +7,10 @@ import Footer from "./Components/Footer.astro"
 
 <Head></Head>
 
-<body>
+<body class="d-flex flex-column">
 	<Header></Header>
     <main>
-			<section class="main-section">
+			<section class="main-section d-flex justify-content-between align-items-center">
 				<div class="text-box">
 					<div class="big-text"><p>A community built for
 						<br>all the international students.</p></div>
@@ -25,7 +25,7 @@ import Footer from "./Components/Footer.astro"
 					<img src="img/paint.png" alt="">
 				</div>
 			</section>
-            <section class="sec-section">
+            <section class="sec-section d-flex justify-content-between align-items-center">
 				<div class="club">
 					<img src="img/club.png" alt="">
 				</div>
@@ -40,7 +40,7 @@ import Footer from "./Components/Footer.astro"
 						</div>
 				</div>
 			</section>
-            <section class="third-section">
+            <section class="third-section d-flex justify-content-between align-items-center">
 				<div class="text-box">
 					<div class="big-text"><p>Read Our Blogs</p></div>
 					<div class="small-text"><p>Dear freshmen,<br>
@@ -54,7 +54,7 @@ import Footer from "./Components/Footer.astro"
 					<img src="img/career.png" alt="">
 				</div>
 			</section>
-            <section class="fourth-section">
+            <section class="fourth-section d-flex justify-content-between align-items-center">
 				<div class="club">
 					<img src="img/podcast.png" alt="">
 				</div>
@@ -69,8 +69,8 @@ import Footer from "./Components/Footer.astro"
 						</div>
 				</div>
 			</section>
-            <section class="final-section">
-                <div class="newsletter"></div>
+            <section class="final-section d-flex flex-column justify-content-between align-items-start">
+                <div class="newsletter d-flex"></div>
                 <Footer></Footer>
 			</section>
         </main>
@@ -78,16 +78,11 @@ import Footer from "./Components/Footer.astro"
 
 <style>
 
-.final-section{
-    flex-direction: column;
-    align-items: flex-start !important;
-}
 
 .newsletter{
     height: 40%;
     width: 100vw;
     background-color: #333;
-    display: flex;
     font-family: 'Poppins';
 }
 
@@ -102,8 +97,6 @@ body{
     margin: 0;
 	width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
 }
 
 main{
@@ -117,9 +110,6 @@ main section {
     scroll-snap-align: center;
     width: 100vw;
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     margin: 0;
 }
 

@@ -1,0 +1,49 @@
+---
+import Head from "../Layout/Head.astro"
+import Header from "../Components/Header.astro"
+import Footer from "../Components/Footer.astro"
+
+
+export async function getStaticPaths() {
+    const response = await fetch('http://localhost:8000/blog');
+    const articles = await response.json();
+    const routes = []
+    
+
+  articles.map(name => (
+    routes.push({
+      params: { title: name.title },
+      props: { name },
+    }
+    )
+  ))
+  return routes;
+  }
+
+const {title} = Astro.params;
+const {name} = Astro.props
+
+
+---
+
+<Head title = {title}></Head>
+<body>
+    <Header></Header>
+</body>
+    <h1>{name.title}</h1>
+    <p>{name.body}</p>
+<style>
+
+html{
+	margin: 0;
+	padding: 0;
+    overflow-y: hidden;
+}
+
+body{
+    margin: 0;
+	width: 100vw;
+    height: 100vh;
+}
+
+</style>

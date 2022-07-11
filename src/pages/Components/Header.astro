@@ -1,16 +1,13 @@
 ---
 import Head from "../Layout/Head.astro"
+
 ---
 
 <Head></Head>
 <header>
-    <nav>
+    <nav class="d-flex justify-content-between">
     <a href="index.html"><img src="img/C.png" alt=""></a>
-    <ul class="menu">
-        <div class="dropdown"><a>Home</a>
-        </div>
-        <div class="dropdown"><a>Clubs</a>
-        </div>
+    <ul class="menu d-flex text-center">
         <div class="dropdown"><a>Blogs</a>                     
                 </div>
         <div class="dropdown"><a>Resources</a>
@@ -44,7 +41,6 @@ nav {
     display: flex;
     align-items: center;
     border-bottom: 1px solid rgba(0,0,0,.12);
-    justify-content: space-between;
 }
 
 
@@ -57,11 +53,9 @@ nav img {
 }
 
 .menu {
-    display: flex;
     gap: 10px;
     margin-right: 160px;
     text-decoration: none;
-    text-align: center;
 }
 
 
