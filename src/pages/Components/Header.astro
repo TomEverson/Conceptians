@@ -5,22 +5,25 @@ import Head from "../Layout/Head.astro"
 
 <Head></Head>
 <header>
-    <nav class="d-flex justify-content-between">
-    <a href="http://localhost:3000"><img src="img/C.png" alt=""></a>
-    <ul class="menu d-flex text-center">
-        <div class="dropdown"><a href="http://localhost:3000/blog/">Blogs</a>                     
+    <nav class="d-flex">
+        <a href="http://localhost:3000">
+            <img class="me-auto ms-0" src="img/C.png" alt="">
+        </a>
+        <ul class="menu d-flex text-center ms-auto">
+            <div class="dropdown"><a href="http://localhost:3000/blog/">Blogs</a>                     
+                    </div>
+            <div class="dropdown"><a>Resources</a>
                 </div>
-        <div class="dropdown"><a>Resources</a>
-            </div>
-        <div class="dropdown"><a>Podcasts</a>
-            </div>
-        <div class="dropdown"><a>Learn</a>
-            </div>
-        <div class="dropdown"><a>About Us</a>
-            </div>
-    </ul>
-<div class="hamburger"><span></span><span></span><span></span></div>
+            <div class="dropdown"><a>Podcasts</a>
+                </div>
+            <div class="dropdown"><a>Learn</a>
+                </div>
+            <div class="dropdown"><a>About Us</a>
+                </div>
+        </ul>
+        <div class="hamburger"><span></span><span></span><span></span></div>
     </nav>
+
 </header>
 
 <style>

@@ -69,10 +69,22 @@ import Footer from "./Components/Footer.astro"
 						</div>
 				</div>
 			</section>
-            <section class="final-section d-flex flex-column justify-content-between align-items-start">
-                <div class="newsletter d-flex"></div>
+            <section class="final-section d-flex flex-column">
+                <div class="newsletter d-flex justify-content-center align-items-center">
+                    <div class="">
+                        <h2 class="text-light text-center mb-4">
+                            What are you waiting for? <br>
+                            Subscribe to our weekly newsletter
+                        </h2>
+                        <div class="d-flex justify-content-between">
+                            <input type="text" class="form-control email-subscribe" placeholder="Your Email Address...">
+                            <button class="btn subscribe-btn">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
                 <Footer></Footer>
 			</section>
+            
         </main>
 	</body>
 
@@ -80,9 +92,9 @@ import Footer from "./Components/Footer.astro"
 
 
 .newsletter{
-    height: 40%;
+    height: 45%;
     width: 100vw;
-    background-color: #333;
+    background-color: #496076;
     font-family: 'Poppins';
 }
 
@@ -186,6 +198,19 @@ section img{
     width: 512px;
     height: auto;
     animation: paint-animation 2s infinite alternate;
+}
+
+.email-subscribe{
+    width: 70%;
+    height: 50px;
+    border-radius: 20px;
+}
+
+.subscribe-btn{
+    width: 125px;
+    border-radius: 20px;
+    color: #000;
+    background-color: #C2F1D9;
 }
 
 @keyframes paint-animation {
