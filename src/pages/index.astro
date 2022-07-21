@@ -72,14 +72,14 @@ import Footer from "./Components/Footer.astro"
             <section class="final-section d-flex flex-column">
                 <div class="newsletter d-flex justify-content-center align-items-center">
                     <div class="">
-                        <h2 class="text-light text-center mb-4">
+                        <h2 class="search-text text-light text-center mb-4">
                             What are you waiting for? <br>
                             Subscribe to our weekly newsletter
                         </h2>
-                        <div class="d-flex justify-content-between">
-                            <input type="text" class="form-control email-subscribe" placeholder="Your Email Address...">
-                            <button class="btn subscribe-btn">Subscribe</button>
-                        </div>
+                        <form class="d-flex justify-content-between">
+                            <input type="text" id="textbox" class="form-control email-subscribe" placeholder="Your Email Address...">
+                            <button type="submit" class="btn subscribe-btn">Subscribe</button>
+                        </form>
                     </div>
                 </div>
                 <Footer></Footer>
@@ -88,7 +88,40 @@ import Footer from "./Components/Footer.astro"
         </main>
 	</body>
 
+<script is:inline>
+
+const createMail = (email) => {
+    axios.post('http://localhost:8000/email', email)
+        .then(response => {
+            const addedEmail = response.data;
+            console.log(`POST: user is added`, addedEmail);
+        })
+        .catch(error => console.error(error));
+};
+
+const form = document.querySelector('form');
+
+const formEvent = form.addEventListener('submit', event => {
+    event.preventDefault();
+
+    const email = document.getElementById('textbox').value;
+
+    const email_input = { email };
+
+    //console.log(email_input)
+    createMail(email_input);
+});
+
+</script>
+
 <style>
+
+.search-text{
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 700;
+    line-height: 110%;
+}
 
 
 .newsletter{
@@ -161,7 +194,7 @@ main section {
 
 .small-text {
     margin-top: 32px;
-    font-family: 'Poppins';
+    font-family: 'Mulish';
     font-style: normal;
     font-weight: 400;
     font-size: 1rem;
@@ -172,7 +205,7 @@ main section {
     text-decoration: none;
     color: #333;
     z-index: 10;
-    font-family: 'Poppins';
+    font-family: 'Mulish'; 
     margin-top: 10px;
     width: 315px;
     height: 50px;
