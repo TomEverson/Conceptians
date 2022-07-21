@@ -1,8 +1,8 @@
 ---
-// import Head from "../Layout/Head.astro"
+import Head from "../Layout/Head.astro"
 ---
 
-<!-- <Head></Head> -->
+<Head></Head>
 
 <footer class="text-center text-lg-start mt-5">
     <div class="container p-4 py-0">
@@ -16,7 +16,7 @@
             <div class="col-12 col-md-3 mx-auto mt-3">
                 <h6 class="mb-4 font-weight-bold">Studio</h6>
                 <p class="">
-                    <a class="text-decoration-none text-dark" href="#">About</a>
+                    <a class="text-decoration-none text-dark" href="#">About Us</a>
                 </p>
                 <p>
                     <a class="text-decoration-none text-dark" href="#">Carrers</a>
@@ -28,7 +28,7 @@
             <div class="col-12 col-md-3 mx-auto mt-3">
                 <h6 class="mb-4 font-weight-bold">Contact Us</h6>
                 <p class="">
-                    <a class=" text-decoration-none text-dark" href="mailto:info@conception.com">info@conception.com</a>
+                    <a class=" text-decoration-none text-dark" href="mailto:info@conception.com">info@coneptians.org</a>
                 </p>
                 <p class="">
                     <a class="text-decoration-none text-dark" href="tel:+959677888112">+959-677-888-112</a>
@@ -78,7 +78,7 @@
     </div>
     <!-- Copyright -->
     <div class="text-center p-3 text-uppercase mt-5">
-        Copy Right © 2022 : <a class="text-decoration-none text-dark" href="#">Conception</a>
+        CopyRight © 2022 : <a class="text-decoration-none text-dark" href="#">Conception</a>
     </div>
     <!-- Copyright -->
 </footer>
@@ -89,11 +89,16 @@ footer{
     width: 100vw;
     color: #000;
     height: 55%;
-    /* background-color: red; */
 }    
 
 .bi-facebook, .bi-youtube, .bi-discord{
     width: 35px;
     height: 35px;
+    transition: transform 1s ease-in-out;
 }
+
+
+.bi-facebook:hover, .bi-youtube:hover, .bi-discord:hover{
+    transform: rotate(360deg);
+ }
 </style>

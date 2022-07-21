@@ -48,7 +48,9 @@ const {blog} = Astro.props;
     <div set:html={blog.body} style="font-family: 'Mulish';font-style: normal;font-weight: 400;font-size: 18px;line-height: 160%;"></div>
     <div set:html={blog.translate}></div>
   </div>
+  <Footer></Footer>
     </main>
+    
 </body>
     
 
@@ -73,6 +75,7 @@ body{
 main{
   height: 90%;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .main-section h1{
