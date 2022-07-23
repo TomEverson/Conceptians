@@ -88,31 +88,24 @@ import Footer from "./Components/Footer.astro"
         </main>
 	</body>
 
-<script is:inline>
-
-const createMail = (email) => {
-    axios.post('http://localhost:8000/email', email)
-        .then(response => {
-            const addedEmail = response.data;
-            console.log(`POST: user is added`, addedEmail);
-        })
-        .catch(error => console.error(error));
-};
-
-const form = document.querySelector('form');
-
-const formEvent = form.addEventListener('submit', event => {
-    event.preventDefault();
-
-    const email = document.getElementById('textbox').value;
-
-    const email_input = { email };
-
-    //console.log(email_input)
-    createMail(email_input);
-});
-
-</script>
+    <script is:inline>
+        const createMail = (email) => {
+            axios.post('http://localhost:8000/email', email)
+                .then(response => {
+                    const addedEmail = response.data;
+                    console.log(`POST: user is added`, addedEmail);
+                })
+                .catch(error => console.error(error));
+        };
+        const form = document.querySelector('form');
+        const formEvent = form.addEventListener('submit', event => {
+            event.preventDefault();
+            const email = document.getElementById('textbox').value;
+            const email_input = { email };
+            //console.log(email_input)
+            createMail(email_input);
+        });
+        </script>
 
 <style>
 
@@ -177,6 +170,7 @@ main section {
     width: 100vw;
     height: 100vh;
     margin: 0;
+    overflow-y: scroll;
 }
 
 .text-box {
@@ -303,5 +297,61 @@ section img{
 
 }
 
+@media (max-width: 1440px) {
+    .paint {
+    margin-right: 1rem;
+    z-index: 5;
+}
+    .text-box {
+        margin-left: 1rem;
+    }
+    .club {
+    margin-left: 1rem;
+}
+
+.sec-text-box{
+    margin-right: 1rem;
+
+}
+
+}
+
+@media (max-width: 1200px) { 
+    .paint img, .club img {
+        width: 400px;
+        height: auto;
+    }
+
+    .big-text {
+        font-size: 1.8rem;
+        line-height: 2rem;
+    }
+
+}
+
+@media (max-width: 992px) {
+    .paint img, .club img {
+        width: 300px;
+        height: auto;
+    }
+
+    .big-text {
+        font-size: 1.5rem;
+        line-height: 1.3rem;
+    }
+
+    .small-text{
+        font-size: 1rem;
+        line-height: 1.2rem;
+    }
+    .cool-button, .sec-cool-button{
+        width: 200px;
+        height: 50px;
+    }
+    .cool-button span, .sec-cool-button span{
+        display: none;
+    }
+    
+}
 
 </style>

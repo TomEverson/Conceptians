@@ -27,8 +27,43 @@ const articles = await response.json();
 
 <style>
 
-main{
-    width: 100vw;
-    height: 100vh;
+html{
+	margin: 0;
+	padding: 0;
+  
 }
+
+body{
+  margin: 0;
+	width: 100vw;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+main{
+  height: 90%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -ms-overflow-style: none;  /* IE and Opera */
+    scrollbar-width: none;  /* Firefox */
+}
+
+main::-webkit-scrollbar {
+width: 7px;
+height: 3px;
+}
+
+main::-webkit-scrollbar-track {
+display: none;
+}
+
+main::-webkit-scrollbar-thumb {
+background: gray;  
+border-radius: 10px;
+}
+
+main::-webkit-scrollbar-thumb:hover {
+background: #000;  
+}
+
 </style>
