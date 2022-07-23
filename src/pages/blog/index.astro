@@ -2,6 +2,7 @@
 import Head from "../Layout/Head.astro"
 import Header from "../Components/Header.astro"
 import Footer from "../Components/Footer.astro"
+import Search from "../Components/search.jsx"
 
 const response = await fetch('http://localhost:8000/blog');
 const articles = await response.json();
@@ -12,15 +13,12 @@ const articles = await response.json();
 
 
 
-<body class="d-flex flex-column">
+<body>
     <Header></Header>
-    <main class="d-flex justify-content-center align-items-center">
-        <ul>
-            {articles.map(name => (
-                <li><a href={name.title}>{name.title}</a></li>
-            ))}
-        </ul>
+    <main class="d-flex justify-content-center align-items-center flex-column">
+      <Search client:load></Search>
     </main>
+    <Footer></Footer>
 </body>
 
 
@@ -35,13 +33,13 @@ html{
 
 body{
   margin: 0;
-	width: 100vw;
-  height: 100vh;
+	width: 100%;
+  height: 100%;
   overflow-y: hidden;
 }
 
 main{
-  height: 90%;
+  height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
   -ms-overflow-style: none;  /* IE and Opera */
@@ -65,5 +63,6 @@ border-radius: 10px;
 main::-webkit-scrollbar-thumb:hover {
 background: #000;  
 }
+
 
 </style>
