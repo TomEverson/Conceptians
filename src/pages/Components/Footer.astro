@@ -4,7 +4,7 @@ import Head from "../Layout/Head.astro"
 
 <Head></Head>
 
-<footer class="text-center text-lg-start mt-5">
+<footer class="text-center text-lg-start pt-5">
     <div class="container-sm py-0">
         <div class="row justify-content-between">
             <div class="col-12 col-md-3 mx-auto mt-3">
@@ -71,7 +71,7 @@ import Head from "../Layout/Head.astro"
         </div>
     </div>
     <!-- Copyright -->
-    <div class="text-center p-3 text-uppercase mt-5">
+    <div class="copyright text-center p-3 text-uppercase mt-5">
         CopyRighted © 2022 : <a class="text-decoration-none text-dark" href="#">Conceptians</a>
     </div>
     <!-- Copyright -->
@@ -104,6 +104,7 @@ import Head from "../Layout/Head.astro"
 <style>
 
 footer{
+    border-top: 1px solid rgba(0,0,0,.12);
     font-family: 'Cabin';
     font-style: normal;
     font-weight: 400;    
@@ -122,4 +123,14 @@ footer{
 .bi-facebook:hover, .bi-youtube:hover, .bi-discord:hover{
     transform: rotate(360deg);
  }
+
+ @media (max-width: 767px) {
+    footer{
+        padding-top: 1rem !important;
+    }
+
+    .copyright{
+        margin: 1rem 0rem 3rem 0rem !important;
+    }
+}
 </style>

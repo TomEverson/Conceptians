@@ -32,6 +32,11 @@ const {blog} = Astro.props;
 
 <body>
     <Header></Header>
+    <div class="pop-up d-flex flex-column">
+      <div class="lang justify-content-center align-items-center" id="eng-btn"><img src="img/english.png" alt=""></div>
+      <div class="lang justify-content-center align-items-center" id="mm-btn"><img src="img/myanmar.png" alt=""></div>
+      <div class="lang-btn d-flex justify-content-center align-items-center" id="lang-btn"><img src="img/language.png" alt=""></div>
+    </div>
     <main>
       <div class="main-section container-sm mt-5 d-flex flex-column">
     <h1>{blog.title}</h1>
@@ -45,16 +50,14 @@ const {blog} = Astro.props;
       <p class=" mb-0">{blog.read}</p></div>
     </div>
   </div>
-    <div set:html={blog.body} style="font-family: 'Mulish';font-style: normal;font-weight: 400;font-size: 18px;line-height: 160%;"></div>
-    <div set:html={blog.translate}></div>
+    <div set:html={blog.body} class="english-text" id="english-text"></div>
+    <div set:html={blog.translate} class="myanmar-text" id="myanmar-text"></div>
   </div>
   <Footer></Footer>
     </main>
     
 </body>
     
-
-
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
@@ -116,6 +119,92 @@ background: #000;
   height: auto;
 }
 
+.pop-up{
+  position: fixed;
+  width: 50px;
+  background-color: lightgray;
+  bottom: 0%;
+  right: 5%;
+  z-index: 10;
+  border-radius: 25px;
+  gap: 1rem;
+  justify-content: flex-end;
+}
 
+.pop-up img{
+  max-width:70%;
+  max-height:70%;
+}
+
+.show{
+  display: flex !important; 
+}
+
+.hide{
+  display: none !important;
+}
+
+.unhide{
+  display: block !important;
+}
+
+.lang{
+  cursor: pointer;
+  display: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+.lang-btn{
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+.english-text{
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 160%;
+}
+
+.myanmar-text{
+  display: none;
+}
+
+@media (max-width: 375px) {
+  .main-section img{
+    max-width: 80px;
+    height: 80px;
+}
+}
 
 </style>
+
+<script is:inline>
+
+const language_button = document.getElementById('lang-btn');
+const mm_button = document.getElementById('mm-btn');
+const eng_button = document.getElementById('eng-btn')
+const mm_text = document.getElementById('myanmar-text')
+const eng_text = document.getElementById('english-text')
+
+language_button.addEventListener("click", function(){
+  mm_button.classList.toggle("show")
+  eng_button.classList.toggle("show")
+})
+
+mm_button.addEventListener("click", function(){
+  mm_text.classList.add("unhide")
+  eng_text.classList.add("hide")
+})
+
+eng_button.addEventListener("click", function(){
+  mm_text.classList.remove("unhide")
+  eng_text.classList.remove("hide")
+})
+
+</script>
