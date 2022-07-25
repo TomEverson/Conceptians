@@ -163,9 +163,6 @@ main section {
     margin: 0;
 }
 
-.final-section{
-    overflow-y: scroll;
-}
 
 .text-box {
     z-index: 5;
@@ -350,11 +347,20 @@ section img{
 
 @media (max-width: 767px) {
     main section{
-        flex-direction: column-reverse;
         justify-content: flex-end !important;
         align-items: center !important;
+        height: auto;
     }
 
+    .main-section, .third-section{
+        flex-direction: column-reverse;
+    }
+
+    .sec-section, .fourth-section{
+        flex-direction: column;
+    }
+
+    
     .paint, .club{
         margin: 5rem 0rem 0rem 0rem;
     }
@@ -374,15 +380,25 @@ section img{
         align-items: center;
         gap: 1rem;
     }
-}
 
-@media (max-height: 700px) { 
-
-    main{
-        scroll-snap-type: none;
-        
+    .final-section{
+        margin-top: 2rem !important;
     }
 
+    .newsletter {
+        padding: 2rem 0rem;
+    }
 }
+
+@media (max-height: 900px) { 
+
+main{
+    scroll-snap-type: none;
+    
+}
+
+}
+
+
 
 </style>
