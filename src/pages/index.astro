@@ -17,7 +17,7 @@ import Footer from "./Components/Footer.astro"
 					<div class="small-text"><p>Dear freshmen,<br>
 						Even the greatest were beginners.<br>
 						Follow our lead to find  yourself.</p></div>
-					<div class="cool-button-box">
+					<div class="cool-button-box d-flex">
 					<a class="cool-button">Explore Articles<span>>></span></a>
 						</div>
 				</div>
@@ -35,7 +35,7 @@ import Footer from "./Components/Footer.astro"
 					<div class="small-text"><p>Dear freshmen,<br>
 						Even the greatest were beginners.<br>
 						Follow our lead to find  yourself.</p></div>
-					<div class="cool-button-box">
+					<div class="cool-button-box d-flex">
 					<a class="sec-cool-button"><span> << </span>Explore Clubs</a>
 						</div>
 				</div>
@@ -46,7 +46,7 @@ import Footer from "./Components/Footer.astro"
 					<div class="small-text"><p>Dear freshmen,<br>
 						Even the greatest were beginners.<br>
 						Follow our lead to find  yourself.</p></div>
-					<div class="cool-button-box">
+					<div class="cool-button-box d-flex">
 					<a class="cool-button">Explore Articles<span>>></span></a>
 						</div>
 				</div>
@@ -64,7 +64,7 @@ import Footer from "./Components/Footer.astro"
 					<div class="small-text"><p>Dear freshmen,<br>
 						Even the greatest were beginners.<br>
 						Follow our lead to find  yourself.</p></div>
-					<div class="cool-button-box">
+					<div class="cool-button-box d-flex">
                         <a class="sec-cool-button"><span> << </span>Explore Clubs</a>
 						</div>
 				</div>
@@ -76,7 +76,7 @@ import Footer from "./Components/Footer.astro"
                             What are you waiting for? <br>
                             Subscribe to our weekly newsletter
                         </h2>
-                        <form class="d-flex justify-content-between">
+                        <form class="form-input d-flex justify-content-between">
                             <input type="email" id="textbox" class="form-control email-subscribe" placeholder="Your Email Address..." required>
                             <button type="submit" class="btn subscribe-btn">Subscribe</button>
                         </form>
@@ -346,6 +346,43 @@ section img{
         display: none;
     }
     
+}
+
+@media (max-width: 767px) {
+    main section{
+        flex-direction: column-reverse;
+        justify-content: flex-end !important;
+        align-items: center !important;
+    }
+
+    .paint, .club{
+        margin: 5rem 0rem 0rem 0rem;
+    }
+
+    .text-box, .sec-text-box{
+        margin: 3rem 0rem 0rem 0rem;
+        text-align: center;
+    }
+
+    .cool-button-box{
+        justify-content: center;
+    }
+
+    .form-input{
+        flex-direction: column;
+        justify-content: center !important;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+@media (max-height: 700px) { 
+
+    main{
+        scroll-snap-type: none;
+        
+    }
+
 }
 
 </style>
