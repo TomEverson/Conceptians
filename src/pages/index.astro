@@ -88,7 +88,7 @@ import Footer from "./Components/Footer.astro"
         </main>
 	</body>
 
-    <script is:inline>
+<script is:inline>
         const main_form = document.querySelector('form');
         const main_formEvent = main_form.addEventListener('submit', event => {
             event.preventDefault();
@@ -96,7 +96,7 @@ import Footer from "./Components/Footer.astro"
             const email_input = { email };
             createMail(email_input);
         });
-        </script>
+</script>
 
 <style>
 
@@ -131,7 +131,7 @@ body{
 
 main{
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: overlay;
     scroll-snap-type: y mandatory;
     height: 100vh;
     -ms-overflow-style: none;  /* IE and Opera */
@@ -144,7 +144,7 @@ height: 3px;
 }
 
 main::-webkit-scrollbar-track {
-display: none;
+ opacity: 0;
 }
 
 main::-webkit-scrollbar-thumb {
@@ -162,7 +162,6 @@ main section {
     height: 100vh;
     margin: 0;
 }
-
 
 .text-box {
     z-index: 5;
@@ -335,6 +334,11 @@ section img{
         font-size: 1rem;
         line-height: 1.2rem;
     }
+
+    .cool-button-box{
+        margin-bottom: 2rem;
+    }
+
     .cool-button, .sec-cool-button{
         width: 200px;
         height: 50px;
