@@ -1,0 +1,179 @@
+---
+import Head from "../Layout/Head.astro"
+import Header from "../Components/Header.astro"
+import Footer from "../Components/Footer.astro"
+import Search from "../Components/search.jsx"
+
+const response = await fetch('http://localhost:8000/blog');
+const articles = await response.json();
+
+---
+<Head title = "Blogs">
+</Head>
+
+
+
+<body class="d-flex flex-column">
+    <Header></Header>
+    <main>
+      <div class="search-section container-fluid d-flex align-items-center justify-content-center w-100 h-75 flex-column">
+        <div class="search-text text-center">
+          <h1>Conceptians Blog</h1>
+          <p>Free posts, guides, tutorials, articles and newsletters 
+           <br> to help you learn more 
+           <br> about academic pathways.</p>
+        </div>
+        <div class="search-box d-flex position-relative mw-100">
+          <input type="text" placeholder="Search ..." id="search-input" onkeyup="search()" class="form-control">
+          <img src="img/search.png" alt="" class="search-icon position-absolute">
+    </div>
+        </div>
+      <ul id="search-index" class="search-index d-flex flex-column-reverse container mt-5 gap-5">
+        {articles.map(name => (
+            <li class="mt-5 mb-5"><a href={name.title} class="text-decoration-none">
+              <h4>{name.title}</h4>
+              <p class="d-flex gap-3"><span>{name.published}</span><span>{name.read}</span></p>
+              <a href={name.category} class="text-decoration-none"><button type="button" class="btn btn-outline-secondary">{name.category}</button></a>
+              <div set:text={name.body} class="eng-text mb-3" id="eng-text"></div>
+              <a href={name.title}>Read More...</a>
+              </a>
+              </li>
+        ))}
+    </ul>
+    <Footer></Footer>
+    </main>
+</body>
+
+<script is:inline>
+const eng = document.querySelectorAll("#eng-text")
+
+const ul = document.getElementById("search-index");
+const li = ul.getElementsByTagName('li');
+
+for (i = 0; i < li.length; i++){
+  eng[i].textContent = eng[i].textContent.replace('<p>', '');
+}
+
+
+  function search() {
+    // Declare variables
+    const input = document.getElementById('search-input');
+    const filter = input.value.toLowerCase();
+
+    for (i = 0; i < li.length; i++) {
+      const h4 = li[i].getElementsByTagName("h4")[0];
+      const txtValue = h4.textContent || h4.innerText;
+      if (txtValue.toLowerCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+  }
+  </script>
+  
+<style>
+
+html{
+	margin: 0;
+	padding: 0;
+  overflow-y: hidden;
+}
+
+body{
+  margin: 0;
+	width: 100%;
+  height: 100%;
+}
+
+main{
+  height: 100vh;
+  overflow-y: overlay;
+  overflow-x: hidden;
+  -ms-overflow-style: none;  /* IE and Opera */
+  scrollbar-width: none;  /* Firefox */
+}
+
+main::-webkit-scrollbar {
+width: 7px;
+height: 3px;
+}
+
+main::-webkit-scrollbar-track {
+display: none;
+}
+
+main::-webkit-scrollbar-thumb {
+background: gray;  
+border-radius: 10px;
+}
+
+main::-webkit-scrollbar-thumb:hover {
+background: #000;  
+}
+
+.eng-text{
+  overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+           line-clamp: 2; 
+   -webkit-box-orient: vertical;
+}
+
+.search-index li{
+  display: block;
+}
+
+.search-index h4{
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40px;
+}
+
+.search-index button{
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.search-index a{
+  color: inherit;
+}
+
+.search-section input{
+  width: 469px;
+  height: 61px;
+  border: 1px solid #25313C;
+  border-radius: 30px;
+}
+
+.search-section{
+  background-color: #C2F1D9;
+}
+
+.search-icon{
+  top: 20%;
+  right: 2%;
+}
+
+.search-text h1{
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 110.1%;
+}
+
+.search-text p{
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 163%;
+}
+
+</style>

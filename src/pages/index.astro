@@ -206,11 +206,24 @@ main section {
     font-family: 'Poppins';
     font-size: 30px;
     color: black;
+    transition: all 0.5s ease-in;
     animation: arrow-animation 2s infinite alternate;
 }
 
-.cool-button:hover {
-    transform: scale(1.1);
+.cool-button-box:hover  > .cool-button span{
+    color: aquamarine;
+}
+
+.cool-button-box:hover > .cool-button {
+    color: aquamarine;
+}
+
+.cool-button-box:hover > .sec-cool-button {
+    color: aquamarine;
+}
+
+.cool-button-box:hover > .sec-cool-button span {
+    color: aquamarine;
 }
 
 @keyframes arrow-animation {
