@@ -4,6 +4,7 @@ dist/
 # firebase log
 firebase.json
 .firebaserc
+.firebase
 
 # dependencies
 node_modules/

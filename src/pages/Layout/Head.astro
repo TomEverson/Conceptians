@@ -4,9 +4,32 @@ const {title} = Astro.props;
 
 
 <head>
+    <!-- Page Setup -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
     <title>{title}</title>
+
+    <!--Seo Google-->
+    <meta name="title" content="Conceptians">
+    <meta name="description" content="A community built for all the international students.">
+    <link rel="canonical" href="https://conceptians.org/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://conceptians.org/">
+    <meta property="og:title" content="Conceptians">
+    <meta property="og:description" content="A community built for all the international students.">
+    <meta property="og:image" content="https://conceptians.org/">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://conceptians.org/">
+    <meta property="twitter:title" content="Conceptians">
+    <meta property="twitter:description" content="A community built for all the international students.">
+    <meta property="twitter:image" content="https://conceptians.org/img/C.png">
+
+
+    <!--Fonts And Modules -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script is:inline src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
