@@ -1,6 +1,10 @@
 # build output
 dist/
 
+# firebase log
+firebase.json
+.firebaserc
+
 # dependencies
 node_modules/
 
