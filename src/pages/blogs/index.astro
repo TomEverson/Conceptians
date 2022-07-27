@@ -29,13 +29,13 @@ const articles = await response.json();
     </div>
         </div>
       <ul id="search-index" class="search-index d-flex flex-column-reverse container mt-5 gap-5">
-        {articles.map(name => (
-            <li class="mt-5 mb-5"><a href={name.title} class="text-decoration-none">
-              <h4>{name.title}</h4>
-              <p class="d-flex gap-3"><span>{name.published}</span><span>{name.read}</span></p>
-              <a href={name.category} class="text-decoration-none"><button type="button" class="btn btn-outline-secondary">{name.category}</button></a>
-              <div set:text={name.body} class="eng-text mb-3" id="eng-text"></div>
-              <a href={name.title}>Read More...</a>
+        {articles.map(article => (
+            <li class="mt-5 mb-5"><a href={article.title} class="text-decoration-none">
+              <h4>{article.title}</h4>
+              <p class="d-flex gap-3"><span>{article.published}</span><span>{article.read}</span></p>
+              <a href={article.category} class="text-decoration-none"><button type="button" class="btn btn-outline-secondary">{article.category}</button></a>
+              <div set:text={article.body} class="eng-text mb-3" id="eng-text"></div>
+              <a href={article.title}>Read More...</a>
               </a>
               </li>
         ))}
@@ -48,7 +48,7 @@ const articles = await response.json();
 const eng = document.querySelectorAll("#eng-text")
 
 const ul = document.getElementById("search-index");
-const li = ul.getElementsByTagName('li');
+const li = ul.getElementsByTagarticle('li');
 
 for (i = 0; i < li.length; i++){
   eng[i].textContent = eng[i].textContent.replace('<p>', '');
@@ -62,7 +62,7 @@ for (i = 0; i < li.length; i++){
     const filter = input.value.toLowerCase();
 
     for (i = 0; i < li.length; i++) {
-      const h4 = li[i].getElementsByTagName("h4")[0];
+      const h4 = li[i].getElementsByTagarticle("h4")[0];
       const txtValue = h4.textContent || h4.innerText;
       if (txtValue.toLowerCase().indexOf(filter) > -1) {
         li[i].style.display = "";
