@@ -23,10 +23,11 @@ export async function getStaticPaths() {
 
 const {title} = Astro.params;
 const {blog} = Astro.props;
+const { text = blog.body.replace('<p>', '').replace('<h3>', '').replace('</h3>', '').slice(0,200)+ "...."} = Astro.props
 
 ---
 
-<Head title = {title}></Head>
+<Head title = {title} meta ={text} img="https://conceptians.org/img/blog.png"></Head>
 
 
 
