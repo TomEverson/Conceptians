@@ -2,9 +2,10 @@
 import Head from "../Layout/Head.astro"
 import Header from "../Components/Header.astro"
 import Footer from "../Components/Footer.astro"
-import Search from "../Components/search.jsx"
+const blogs = import.meta.env.PUBLIC_BLOG;
 
-const response = await fetch('http://localhost:8000/blog');
+
+const response = await fetch(blogs);
 const articles = await response.json();
 
 ---
@@ -48,11 +49,10 @@ const articles = await response.json();
 const eng = document.querySelectorAll("#eng-text")
 
 const ul = document.getElementById("search-index");
-const li = ul.getElementsByTagarticle('li');
+const li = ul.getElementsByTagName('li');
 
 for (i = 0; i < li.length; i++){
   eng[i].textContent = eng[i].textContent.replace('<p>', '');
-  eng[i].textContent = eng[i].textContent.replace('<h3>', '');
 }
 
 
@@ -62,7 +62,7 @@ for (i = 0; i < li.length; i++){
     const filter = input.value.toLowerCase();
 
     for (i = 0; i < li.length; i++) {
-      const h4 = li[i].getElementsByTagarticle("h4")[0];
+      const h4 = li[i].getElementsByTagName("h4")[0];
       const txtValue = h4.textContent || h4.innerText;
       if (txtValue.toLowerCase().indexOf(filter) > -1) {
         li[i].style.display = "";

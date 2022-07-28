@@ -5,7 +5,8 @@ import Footer from "../Components/Footer.astro"
 
 
 export async function getStaticPaths() {
-    const response = await fetch('http://localhost:8000/blog');
+    const blogs = import.meta.env.PUBLIC_BLOG;
+    const response = await fetch(blogs);
     const articles = await response.json();
     const routes = []
     

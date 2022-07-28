@@ -1,5 +1,7 @@
 ---
 import Head from "../Layout/Head.astro"
+const emails = import.meta.env.PUBLIC_EMAIL;
+
 ---
 
 <Head></Head>
@@ -77,10 +79,10 @@ import Head from "../Layout/Head.astro"
     <!-- Copyright -->
 </footer>
 
-<script is:inline>
+<script is:inline define:vars={{ emails }}>
 
     const createMail = (email) => {
-        axios.post('http://localhost:8000/email', email)
+        axios.post(emails, email)
             .then(response => {
                 const addedEmail = response.data;
                 console.log(`POST: user is added`, addedEmail);
