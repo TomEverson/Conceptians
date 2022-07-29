@@ -1,10 +1,9 @@
 # build output
 dist/
 
-# firebase log
-firebase.json
-.firebaserc
-.firebase
+# vercel-log
+vercel.json
+
 
 # dependencies
 node_modules/
