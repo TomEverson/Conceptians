@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 
 const {title} = Astro.params;
 const {blog} = Astro.props;
-const { text = blog.body.replace('<p>', '').replace('<h3>', '').replace('</h3>', '').replace('<h1>', '').replace('</h1>', '').slice(0,200)+ "...."} = Astro.props
+const { text = blog.body.replace(/(<([^>]+)>)/gi, "") } = Astro.props
 
 ---
 
