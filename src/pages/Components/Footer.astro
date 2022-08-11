@@ -85,7 +85,7 @@ const emails = import.meta.env.PUBLIC_EMAIL;
                 const addedEmail = response.data;
                 console.log(`POST: user is added`, addedEmail);
             })
-            .catch(error => console.error(error));
+            .catch(error => console.log(error));
     };
     
     const form = document.getElementById('form-submit');
