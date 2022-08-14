@@ -9,6 +9,7 @@
     "preview": "astro preview"
   },
   "devDependencies": {
+    "@astrojs/netlify": "^1.0.1",
     "@astrojs/react": "^0.4.2",
     "@astrojs/vercel": "^0.4.0",
     "astro": "^1.0.0-beta.63"
