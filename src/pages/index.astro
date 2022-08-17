@@ -26,7 +26,7 @@ import Footer from "./Components/Footer.astro"
 				</div>
 			</section>
             <section class="sec-section d-flex justify-content-between align-items-center">
-				<div class="club">
+				<div class="pop-out club">
 					<img src="img/club.png" alt="">
 				</div>
                 <div class="sec-text-box">
@@ -57,7 +57,7 @@ import Footer from "./Components/Footer.astro"
 				</div>
 			</section>
             <section class="fourth-section d-flex justify-content-between align-items-center">
-				<div class="club">
+				<div class="pop-out club">
 					<img src="img/podcast.png" alt="">
 				</div>
                 <div class="sec-text-box">
@@ -91,13 +91,38 @@ import Footer from "./Components/Footer.astro"
 	</body>
 
 <script is:inline>
-        const main_form = document.querySelector('form');
-        const main_formEvent = main_form.addEventListener('submit', event => {
-            event.preventDefault();
-            let email = document.getElementById('textbox').value;
-            const email_input = { email };
-            createMail(email_input);
-        });
+const main_form = document.querySelector('form');
+const main_formEvent = main_form.addEventListener('submit', event => {
+    event.preventDefault();
+    let email = document.getElementById('textbox').value;
+    const email_input = { email };
+    createMail(email_input);
+});
+
+const paints = document.querySelectorAll("div.paint")
+const clubs = document.querySelectorAll("div.club")
+const texts = document.querySelectorAll("div.text-box")
+
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        entry.target.classList.toggle("show", entry.isIntersecting)
+        if (entry.isIntersecting) observer.unobserve(entry.target)
+    })
+})
+
+paints.forEach(paint => {
+    observer.observe(paint)
+})
+
+clubs.forEach(club => {
+    observer.observe(club)
+})
+
+texts.forEach(text => {
+    observer.observe(text)
+})
+
 </script>
 
 <style>
@@ -168,6 +193,9 @@ main section {
 .text-box {
     z-index: 5;
     margin-left: 12rem;
+    transform: translateY(100px);
+    transition: 1000ms;
+    opacity: 0;
 }
 
 .big-text {
@@ -245,6 +273,9 @@ main section {
 .paint {
     margin-right: 10rem;
     z-index: 5;
+    transform: translateX(-1000px);
+    transition: 1000ms;
+    opacity: 0;
 }
 
 section img{
@@ -255,6 +286,12 @@ section img{
     width: 512px;
     height: auto;
     animation: paint-animation 2s infinite alternate;
+}
+
+.show{
+    transform: translateX(0) !important;
+    transform: translateY(0) !important;
+    opacity: 1 !important;
 }
 
 .email-subscribe{
@@ -270,6 +307,8 @@ section img{
     background-color: #C2F1D9;
 }
 
+
+
 @keyframes paint-animation {
     0% {
         transform: translateY(0px);
@@ -282,11 +321,13 @@ section img{
 
 .club {
     margin-left: 12rem;
+    transform: translateX(1000px);
+    transition: 1000ms;
+    opacity: 0;
 }
 
 .sec-text-box{
     margin-right: 15rem;
-
 }
 
 .sec-cool-button span {
