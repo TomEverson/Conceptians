@@ -2,8 +2,6 @@
 import Head from "../Layout/Head.astro"
 import Header from "../Components/Header.astro"
 import Footer from "../Components/Footer.astro"
-import remarkHtml from 'remark-html'
-
 
 export async function getStaticPaths() {
     const blogs = import.meta.env.PUBLIC_BLOG;
