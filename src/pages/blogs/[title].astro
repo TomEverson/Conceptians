@@ -50,8 +50,8 @@ const { text = blog.body.replace(/(<([^>]+)>)/gi, "") } = Astro.props
       <p class=" mb-0">{blog.read}</p></div>
     </div>
   </div>
-    <div class="english-text" id="english-text">**a line**  
-      li</div>
+    <div class="english-text" id="english-text">{blog.body}
+    </div>
     <div set:html={blog.translate} class="myanmar-text" id="myanmar-text"></div>
   </div>
   <Footer></Footer>

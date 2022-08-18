@@ -104,13 +104,6 @@ const clubs = document.querySelectorAll("div.club")
 const texts = document.querySelectorAll("div.text-box")
 
 
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        entry.target.classList.toggle("show", entry.isIntersecting)
-        if (entry.isIntersecting) observer.unobserve(entry.target)
-    })
-})
-
 paints.forEach(paint => {
     observer.observe(paint)
 })

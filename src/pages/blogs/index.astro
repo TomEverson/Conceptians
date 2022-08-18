@@ -17,7 +17,7 @@ const articles = await response.json();
 <body class="d-flex flex-column">
     <Header></Header>
     <main>
-      <div class="search-section container-fluid d-flex align-items-center justify-content-center w-100 h-75 flex-column">
+      <div class="search-section container-fluid d-flex align-items-center justify-content-center w-100 h-75 flex-column" id="search-section">
         <div class="search-text text-center">
           <h1>Conceptians Blogs</h1>
           <p>Free posts, guides, tutorials, articles and newsletters 
@@ -52,7 +52,7 @@ const ul = document.getElementById("search-index");
 const li = ul.getElementsByTagName('li');
 
 for (i = 0; i < li.length; i++){
-  eng[i].textContent = eng[i].textContent.replace(/(<([^>]+)>)/gi, "");
+  eng[i].textContent = eng[i].textContent.replace(/[#*\\]/gi, "");
 }
 
 
@@ -71,6 +71,16 @@ for (i = 0; i < li.length; i++){
       }
     }
   }
+
+const searchs = document.getElementById('search-section')
+const searchs_text = document.querySelector('.search-text')
+
+observer.observe(searchs_text)
+
+observer.observe(searchs)
+
+
+
   </script>
   
 <style>
@@ -154,11 +164,20 @@ background: #000;
 
 .search-section{
   background-color: #C2F1D9;
+  transform: translateY(500px);
+  transition: 500ms;
+  opacity: 0;
 }
 
 .search-icon{
   top: 20%;
   right: 2%;
+}
+
+.search-text{
+  transform: translateX(-500px);
+  transition: 1000ms;
+  opacity: 0;
 }
 
 .search-text h1{
@@ -175,6 +194,12 @@ background: #000;
   font-weight: 400;
   font-size: 18px;
   line-height: 163%;
+}
+
+.show{
+    transform: translateX(0) !important;
+    transform: translateY(0) !important;
+    opacity: 1 !important;
 }
 
 </style>

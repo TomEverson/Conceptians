@@ -38,9 +38,16 @@
 nav {
     padding: 1vh 6vw;
     border-bottom: 1px solid rgba(0,0,0,.12);
+    transform: translateY(-100px);
+    transition: 1000ms;
+    opacity: 0;
 }
 
-
+.show{
+    transform: translateX(0) !important;
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+}
 
 nav img {
     margin-left: 150px;
@@ -164,10 +171,25 @@ nav img {
 </style>
 
 <script is:inline>
+
+    const header = document.querySelector('nav')    
+
     const menu_button = document.getElementById('menu-button');
     const menu = document.getElementById('menu');
 
     menu_button.addEventListener("click", function () {
         menu.classList.toggle('active')
     })
+
+    const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        entry.target.classList.toggle("show", entry.isIntersecting)
+        if (entry.isIntersecting) observer.unobserve(entry.target)
+    })
+},{
+    rootMargin: "30px"
+})
+
+    observer.observe(header)
+
 </script>
