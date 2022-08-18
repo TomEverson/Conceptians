@@ -50,7 +50,8 @@ const { text = blog.body.replace(/(<([^>]+)>)/gi, "") } = Astro.props
       <p class=" mb-0">{blog.read}</p></div>
     </div>
   </div>
-    <div class="english-text" id="english-text">{blog.body}</div>
+    <div class="english-text" id="english-text">**a line**  
+      li</div>
     <div set:html={blog.translate} class="myanmar-text" id="myanmar-text"></div>
   </div>
   <Footer></Footer>
@@ -182,11 +183,17 @@ background: #000;
 
 <script is:inline>
 
+const converter = new showdown.Converter();
+converter.setOption('simpleLineBreaks', true);
 const language_button = document.getElementById('lang-btn');
 const mm_button = document.getElementById('mm-btn');
 const eng_button = document.getElementById('eng-btn');
 const mm_text = document.getElementById('myanmar-text');
 const eng_text = document.getElementById('english-text');
+
+const text = eng_text.textContent;
+eng_text.innerHTML = converter.makeHtml(text);
+console.log(eng_text.innerHTML)
 
 language_button.addEventListener("click", function(){
   mm_button.classList.toggle("show")

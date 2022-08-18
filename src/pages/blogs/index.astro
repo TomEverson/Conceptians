@@ -31,7 +31,7 @@ const articles = await response.json();
         </div>
       <ul id="search-index" class="search-index d-flex flex-column-reverse container mt-5 gap-5">
         {articles.map(article => (
-            <li class="mt-5 mb-5"><a href={article.title} class="text-decoration-none">
+            <li class="mt-5 mb-5"><a rel="prefetch" href={article.title} class="text-decoration-none">
               <h4>{article.title}</h4>
               <p class="d-flex gap-3"><span>{article.published}</span><span>{article.read}</span></p>
               <a href={article.category} class="text-decoration-none"><button type="button" class="btn btn-outline-secondary">{article.category}</button></a>
