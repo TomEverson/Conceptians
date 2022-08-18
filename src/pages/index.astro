@@ -2,6 +2,7 @@
 import Head from "./Layout/Head.astro"
 import Header from "./Components/Header.astro"
 import Footer from "./Components/Footer.astro"
+import Search from "./Components/Search.astro";
 ---
 
 
@@ -72,18 +73,7 @@ import Footer from "./Components/Footer.astro"
 				</div>
 			</section>
             <section class="final-section d-flex flex-column">
-                <div class="newsletter d-flex justify-content-center align-items-center">
-                    <div>
-                        <h2 class="search-text text-light text-center mb-4">
-                            What are you waiting for? <br>
-                            Subscribe to our weekly newsletter
-                        </h2>
-                        <form class="form-input d-flex justify-content-between">
-                            <input type="email" id="textbox" class="form-control email-subscribe" placeholder="Your Email Address..." required>
-                            <button type="submit" class="btn subscribe-btn">Subscribe</button>
-                        </form>
-                    </div>
-                </div>
+                <Search client:visible></Search>
                 <Footer client:visible></Footer>
 			</section>
             
@@ -91,13 +81,7 @@ import Footer from "./Components/Footer.astro"
 	</body>
 
 <script is:inline>
-const main_form = document.querySelector('form');
-const main_formEvent = main_form.addEventListener('submit', event => {
-    event.preventDefault();
-    let email = document.getElementById('textbox').value;
-    const email_input = { email };
-    createMail(email_input);
-});
+
 
 const paints = document.querySelectorAll("div.paint")
 const clubs = document.querySelectorAll("div.club")
@@ -119,22 +103,6 @@ texts.forEach(text => {
 </script>
 
 <style>
-
-.search-text{
-    font-family: 'Noto Sans';
-    font-style: normal;
-    font-weight: 700;
-    line-height: 110%;
-}
-
-
-.newsletter{
-    height: 45%;
-    width: 100vw;
-    background-color: #496076;
-    font-family: 'Poppins';
-}
-
 
 html{
 	margin: 0;
@@ -287,18 +255,7 @@ section img{
     opacity: 1 !important;
 }
 
-.email-subscribe{
-    width: 70%;
-    height: 50px;
-    border-radius: 20px;
-}
 
-.subscribe-btn{
-    width: 125px;
-    border-radius: 20px;
-    color: #000;
-    background-color: #C2F1D9;
-}
 
 
 
