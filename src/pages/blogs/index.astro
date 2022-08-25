@@ -2,16 +2,15 @@
 import Head from "../Layout/Head.astro"
 import Header from "../Components/Header.astro"
 import Footer from "../Components/Footer.astro"
-export const blogs = import.meta.env.PUBLIC_BLOG;
 
 
-const response = await fetch(blogs);
+const response = await fetch(import.meta.env.PUBLIC_BLOG);
 const articles = await response.json();
 
 ---
 <Head title = "Blogs" meta="Blogs - free posts, guides, tutorials, articles and newsletters to help you learn more about academic pathways." img="https://conceptians.org/img/blog.png">
 </Head>
-
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
 
 
 <body class="d-flex flex-column">
@@ -79,9 +78,7 @@ observer.observe(searchs_text)
 
 observer.observe(searchs)
 
-
-
-  </script>
+</script>
   
 <style>
 
@@ -163,7 +160,9 @@ background: #000;
 }
 
 .search-section{
-  background-color: #C2F1D9;
+  background-image: url("img/svg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   transform: translateY(500px);
   transition: 500ms;
   opacity: 0;
@@ -175,7 +174,7 @@ background: #000;
 }
 
 .search-text{
-  transform: translateX(-500px);
+  transform: translateX(-100px);
   transition: 1000ms;
   opacity: 0;
 }

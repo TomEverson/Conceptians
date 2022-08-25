@@ -2,33 +2,21 @@
 import Head from "../Layout/Head.astro"
 import Header from "../Components/Header.astro"
 import Footer from "../Components/Footer.astro"
+import { getArticle } from "../api/article"
 
-export async function getStaticPaths() {
-    const blogs = import.meta.env.PUBLIC_BLOG;
-    const response = await fetch(blogs);
-    const articles = await response.json();
-    const routes = []
-    
+const request = decodeURI((Astro.url.pathname)).substring(7)
+const article = await getArticle(request)
 
-  articles.map(blog => (
-    routes.push({
-      params: { title: blog.title },
-      props: { blog },
-    }
-    )
-  ))
-  return routes;
-  }
 
-const {title} = Astro.params;
-const {blog} = Astro.props;
-const { text = blog.body.replace(/(<([^>]+)>)/gi, "") } = Astro.props
+
+const {title = article.title} = Astro.params;
+const { text = article.body.replace(/((#*))/gi, "").substring(0,250) } = Astro.props
 
 ---
 
-<Head title = {title} meta ={text} img="https://conceptians.org/img/blog.png"></Head>
-
-
+<Head title = {title} meta ={text} img="https://conceptians.org/img/blog.png">
+</Head>
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
 
 <body>
     <Header></Header>
@@ -39,20 +27,20 @@ const { text = blog.body.replace(/(<([^>]+)>)/gi, "") } = Astro.props
     </div>
     <main>
       <div class="main-section container-sm mt-5 d-flex flex-column">
-    <h1>{blog.title}</h1>
+    <h1>{article.title}</h1>
     <span class="mt-3 mb-3"></span>
     <div class="d-flex mb-5 mt-4" style=" font-family: 'Mulish'; font-style: normal;">
-    <img src={blog.photo} alt="" class="border border-white rounded-circle">
+    <img src={article.photo} alt="" class="border border-white rounded-circle">
     <div class="d-flex flex-column" style="margin-left: 2rem;">
-    <p style="font-weight: 400;font-size: 24px;">{blog.author}</p>
+    <p style="font-weight: 400;font-size: 24px;">{article.author}</p>
     <div class="d-flex flex-column mt-2">
-      <p class=" mb-1">{blog.published}</p>
-      <p class=" mb-0">{blog.read}</p></div>
+      <p class=" mb-1">{article.published}</p>
+      <p class=" mb-0">{article.read}</p></div>
     </div>
   </div>
-    <div class="english-text" id="english-text">{blog.body}
+    <div class="english-text" id="english-text">{article.body}
     </div>
-    <div set:html={blog.translate} class="myanmar-text" id="myanmar-text"></div>
+    <div set:html={article.translate} class="myanmar-text" id="myanmar-text"></div>
   </div>
   <Footer></Footer>
     </main>

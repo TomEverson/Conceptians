@@ -6,12 +6,14 @@ import Search from "./Components/Search.astro";
 ---
 
 
-<Head title="Home" meta="A community built for all the international students." img="https://conceptians.org/img/conceptians.png"></Head>
+<Head title="Home" meta="A community built for all the international students." img="https://conceptians.org/img/conceptians.png">
+</Head>
 
 <body class="d-flex flex-column">
-	<Header></Header>
+    <Header></Header>
     <main>
-			<section class="main-section d-flex justify-content-between align-items-center">
+			<section class="main-section d-flex justify-content-between align-items-center position-relative">
+                <img src="img/bubble.png" alt="bubble" class="bubble position-absolute">
 				<div class="text-box">
 					<div class="big-text"><p>A community built for
 						<br>all the international students.</p></div>
@@ -26,6 +28,7 @@ import Search from "./Components/Search.astro";
 					<img src="img/paint.png" alt="">
 				</div>
 			</section>
+            <div class="background">
             <section class="sec-section d-flex justify-content-between align-items-center">
 				<div class="pop-out club">
 					<img src="img/club.png" alt="">
@@ -72,9 +75,10 @@ import Search from "./Components/Search.astro";
 						</div>
 				</div>
 			</section>
+        </div>
             <section class="final-section d-flex flex-column">
-                <Search client:visible></Search>
-                <Footer client:visible></Footer>
+                <Search></Search>
+                <Footer></Footer>
 			</section>
             
         </main>
@@ -111,24 +115,17 @@ html{
 }
 
 
-body{
-    margin: 0;
-	width: 100%;
-    height: 100%;
-}
-
 main{
     overflow-x: hidden;
     overflow-y: overlay;
-    scroll-snap-type: y mandatory;
     height: 100vh;
     -ms-overflow-style: none;  /* IE and Opera */
     scrollbar-width: none;  /* Firefox */
 }
 
 main::-webkit-scrollbar {
-width: 7px;
-height: 3px;
+width: 5px;
+height: 1px;
 }
 
 main::-webkit-scrollbar-track {
@@ -145,11 +142,29 @@ background: #000;
 }
 
 main section {
-    scroll-snap-align: center;
     width: 100vw;
     height: 100vh;
-    margin: 0;
 }
+
+.main-section{
+    background: linear-gradient(102.44deg, #DEFFEB 9.56%, #DBEFFF 43.85%, #C1D5FB 78.56%);
+    border: 1px solid #FFFFFF;
+}
+
+.bubble{
+    background: none;
+    border: none;
+    box-shadow: none;
+    animation: none;
+    top: 20%;
+}
+
+.background{
+    background-image: url('../img/eclispe.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 
 .text-box {
     z-index: 5;
@@ -234,7 +249,7 @@ main section {
 .paint {
     margin-right: 10rem;
     z-index: 5;
-    transform: translateX(-1000px);
+    transform: translateX(-100px);
     transition: 1000ms;
     opacity: 0;
 }
@@ -271,7 +286,7 @@ section img{
 
 .club {
     margin-left: 12rem;
-    transform: translateX(1000px);
+    transform: translateX(100px);
     transition: 1000ms;
     opacity: 0;
 }
@@ -407,7 +422,7 @@ section img{
 @media (max-height: 900px) { 
 
 main{
-    scroll-snap-type: none;
+    
     
 }
 
