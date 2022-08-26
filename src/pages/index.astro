@@ -9,18 +9,18 @@ import Search from "./Components/Search.astro";
 <Head title="Home" meta="A community built for all the international students." img="https://conceptians.org/img/conceptians.png">
 </Head>
 
-<body class="d-flex flex-column">
+<body>
     <Header></Header>
-    <main>
-			<section class="main-section d-flex justify-content-between align-items-center position-relative">
-                <img src="img/bubble.png" alt="bubble" class="bubble position-absolute">
+    <main class="h-screen overflow-x-hidden overflow-y-scroll">
+			<section class="main-section border border-white relative">
+                <img src="img/bubble.png" alt="bubble" class="absolute bg-none border-none shadow-none animate-none top-[20%]">
 				<div class="text-box">
 					<div class="big-text"><p>A community built for
 						<br>all the international students.</p></div>
 					<div class="small-text"><p>Dear freshmen,<br>
 						Even the greatest were beginners.<br>
 						Join us and walk the brighter future with us</p></div>
-					<div class="cool-button-box d-flex">
+					<div class="cool-button-box">
 					<a href="/blogs/" class="cool-button">Explore Blogs<span>>></span></a>
 						</div>
 				</div>
@@ -28,8 +28,8 @@ import Search from "./Components/Search.astro";
 					<img src="img/paint.png" alt="">
 				</div>
 			</section>
-            <div class="background">
-            <section class="sec-section d-flex justify-content-between align-items-center">
+            <div class="background bg-no-repeat bg-cover">
+            <section class="sec-section">
 				<div class="pop-out club">
 					<img src="img/club.png" alt="">
 				</div>
@@ -40,19 +40,19 @@ import Search from "./Components/Search.astro";
                         <br>
 						Efficient and <br>
 						Easy for you.</p></div>
-					<div class="cool-button-box d-flex">
+					<div class="cool-button-box">
 					<a class="sec-cool-button"><span> << </span>Explore Clubs</a>
 						</div>
 				</div>
 			</section>
-            <section class="third-section d-flex justify-content-between align-items-center">
+            <section class="third-section">
 				<div class="text-box">
 					<div class="big-text"><p>Fascinating Courses are here!</p></div>
 					<div class="small-text"><p>Wanna learn new things but don't know how to start?<br>
 						Start Here!!<br>
 						Plus, Get guides and Informations to study abroad 
                         <br>or enter international exams.</p></div>
-					<div class="cool-button-box d-flex">
+					<div class="cool-button-box">
 					<a class="cool-button">Explore Free Courses<span>>></span></a>
 						</div>
 				</div>
@@ -60,7 +60,7 @@ import Search from "./Components/Search.astro";
 					<img src="img/career.png" alt="">
 				</div>
 			</section>
-            <section class="fourth-section d-flex justify-content-between align-items-center">
+            <section class="fourth-section">
 				<div class="pop-out club">
 					<img src="img/podcast.png" alt="">
 				</div>
@@ -70,13 +70,13 @@ import Search from "./Components/Search.astro";
 					<div class="small-text"><p>Podcats with interesting topics 
                         <br> that you wouldn't deny knowing.<br>
 	                            </p></div>
-					<div class="cool-button-box d-flex">
+					<div class="cool-button-box">
                         <a class="sec-cool-button"><span> << </span>Explore Clubs</a>
 						</div>
 				</div>
 			</section>
         </div>
-            <section class="final-section d-flex flex-column">
+            <section class="final-section">
                 <Search></Search>
                 <Footer></Footer>
 			</section>
@@ -108,17 +108,14 @@ texts.forEach(text => {
 
 <style>
 
+@tailwind components;
+
 html{
-	margin: 0;
-	padding: 0;
     overflow-y: hidden;
 }
 
 
 main{
-    overflow-x: hidden;
-    overflow-y: overlay;
-    height: 100vh;
     -ms-overflow-style: none;  /* IE and Opera */
     scrollbar-width: none;  /* Firefox */
 }
@@ -141,78 +138,71 @@ main::-webkit-scrollbar-thumb:hover {
 background: #000;  
 }
 
-main section {
-    width: 100vw;
-    height: 100vh;
+@layer components {
+  main section {
+    @apply w-[100vw] h-[100vh] flex items-center justify-between;
+  }
+    .text-box {
+    @apply z-10 2xl:ml-40 lg:ml-28 md:ml-20 translate-y-[100px] duration-1000 opacity-0;
+    }
+
+    .sec-text-box{
+    @apply 2xl:ml-40 2xl:mr-20 md:mr-20 lg:ml-20 lg:mr-14
+    }
+
+   .big-text{
+    @apply font-semibold 2xl:text-4xl 2xl:leading-10 lg:text-2xl lg:leading-6 md:text-xl md:leading-6;
+   }
+   .small-text{
+    @apply lg:mt-8 font-normal lg:text-base lg:leading-6 md:mt-2 ;
+   }
+   .cool-button, .sec-cool-button {
+    @apply no-underline z-10 mt-3 lg:w-[315px] lg:h-[50px] border rounded-[25px] flex items-center justify-around duration-500 ease-in md:w-[250px] md:h-[35px]
 }
+    .cool-button span, .sec-cool-button span{
+    @apply text-2xl text-black
+    }
+
+    .paint{
+    @apply 2xl:mr-40 lg:mr-20 md:mr-12 z-10 translate-x-[-100px] duration-1000 opacity-0
+    }
+
+    section img{
+    @apply border rounded-[2rem] 2xl:w-[512px] h-auto xl:w-[384px] lg:w-[350px] md:w-[300px]; 
+    }
+
+    .club {
+    @apply 2xl:ml-48 lg:ml-28 md:ml-16 translate-x-[100px] duration-1000 opacity-0;
+    }
+
+}
+
 
 .main-section{
     background: linear-gradient(102.44deg, #DEFFEB 9.56%, #DBEFFF 43.85%, #C1D5FB 78.56%);
-    border: 1px solid #FFFFFF;
-}
-
-.bubble{
-    background: none;
-    border: none;
-    box-shadow: none;
-    animation: none;
-    top: 20%;
 }
 
 .background{
     background-image: url('../img/eclispe.png');
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
-
-.text-box {
-    z-index: 5;
-    margin-left: 12rem;
-    transform: translateY(100px);
-    transition: 1000ms;
-    opacity: 0;
-}
 
 .big-text {
     font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 2.125rem;
-    line-height: 2.5rem;
 }
 
 .small-text {
-    margin-top: 32px;
     font-family: 'Mulish';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 1.5rem;
 }
 
 .cool-button, .sec-cool-button {
-    text-decoration: none;
-    color: #333;
-    z-index: 10;
     font-family: 'Mulish'; 
-    margin-top: 10px;
-    width: 315px;
-    height: 50px;
-    border-radius: 25px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    transition: all 0.5s ease-in;
 }
 
 .cool-button span {
     font-family: 'Poppins';
-    font-size: 30px;
-    color: black;
-    transition: all 0.5s ease-in;
     animation: arrow-animation 2s infinite alternate;
 }
 
@@ -246,21 +236,9 @@ main section {
 
 }
 
-.paint {
-    margin-right: 10rem;
-    z-index: 5;
-    transform: translateX(-100px);
-    transition: 1000ms;
-    opacity: 0;
-}
-
 section img{
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), #e0f4ff);
-    border:1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    border-radius: 2rem;
-    width: 512px;
-    height: auto;
     animation: paint-animation 2s infinite alternate;
 }
 
@@ -269,10 +247,6 @@ section img{
     transform: translateY(0) !important;
     opacity: 1 !important;
 }
-
-
-
-
 
 @keyframes paint-animation {
     0% {
@@ -284,21 +258,8 @@ section img{
 
 }
 
-.club {
-    margin-left: 12rem;
-    transform: translateX(100px);
-    transition: 1000ms;
-    opacity: 0;
-}
-
-.sec-text-box{
-    margin-right: 15rem;
-}
-
 .sec-cool-button span {
     font-family: 'Poppins';
-    font-size: 30px;
-    color: black;
     animation: sec-arrow-animation 2s infinite alternate;
 }
 
@@ -311,123 +272,6 @@ section img{
     }
 
 }
-
-@media (max-width: 1440px) {
-    .paint {
-    margin-right: 1rem;
-    z-index: 5;
-}
-    .text-box {
-        margin-left: 1rem;
-    }
-    .club {
-    margin-left: 1rem;
-}
-
-.sec-text-box{
-    margin-right: 1rem;
-
-}
-
-}
-
-@media (max-width: 1200px) { 
-    .paint img, .club img {
-        width: 400px;
-        height: auto;
-    }
-
-    .big-text {
-        font-size: 1.8rem;
-        line-height: 2rem;
-    }
-
-}
-
-@media (max-width: 992px) {
-    .paint img, .club img {
-        width: 300px;
-        height: auto;
-    }
-
-    .big-text {
-        font-size: 1.5rem;
-        line-height: 1.3rem;
-    }
-
-    .small-text{
-        font-size: 1rem;
-        line-height: 1.2rem;
-    }
-
-    .cool-button-box{
-        margin-bottom: 2rem;
-    }
-
-    .cool-button, .sec-cool-button{
-        width: 200px;
-        height: 50px;
-    }
-    .cool-button span, .sec-cool-button span{
-        display: none;
-    }
-    
-}
-
-@media (max-width: 767px) {
-    main section{
-        justify-content: flex-end !important;
-        align-items: center !important;
-        height: auto;
-    }
-
-    .main-section, .third-section{
-        flex-direction: column-reverse;
-    }
-
-    .sec-section, .fourth-section{
-        flex-direction: column;
-    }
-
-    
-    .paint, .club{
-        margin: 5rem 0rem 0rem 0rem;
-    }
-
-    .text-box, .sec-text-box{
-        margin: 3rem 0rem 0rem 0rem;
-        text-align: center;
-    }
-
-    .cool-button-box{
-        justify-content: center;
-    }
-
-    .form-input{
-        flex-direction: column;
-        justify-content: center !important;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .final-section{
-        margin-top: 2rem !important;
-    }
-
-    .newsletter {
-        padding: 2rem 0rem;
-    }
-}
-
-@media (max-height: 900px) { 
-
-main{
-    
-    
-}
-
-}
-
 
 
 </style>

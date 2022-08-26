@@ -3,7 +3,7 @@
 import Logout from '../Components/Logout.svelte'
 import Head from "../Layout/Head.astro"
 
-import { getUser, redirectUser } from "@astro-auth/core";
+import { getUser } from "@astro-auth/core";
 const user = getUser({ client: Astro });
 
 if (!user) {
