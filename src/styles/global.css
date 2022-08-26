@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    main section {
+      @apply w-[100vw] h-[100vh] flex items-center justify-between;
+    }
+      .text-box {
+      @apply z-10 2xl:ml-40 lg:ml-28 md:ml-20 translate-y-[100px] duration-1000 opacity-0;
+      }
+  
+      .sec-text-box{
+      @apply 2xl:ml-40 2xl:mr-20 md:mr-20 lg:ml-20 lg:mr-14
+      }
+  
+     .big-text{
+      @apply font-semibold 2xl:text-4xl 2xl:leading-10 lg:text-2xl lg:leading-6 md:text-xl md:leading-6;
+     }
+     .small-text{
+      @apply lg:mt-8 font-normal lg:text-base lg:leading-6 md:mt-2 ;
+     }
+     .cool-button, .sec-cool-button {
+      @apply no-underline z-10 mt-3 lg:w-[315px] lg:h-[50px] border rounded-[25px] flex items-center justify-around duration-500 ease-in md:w-[250px] md:h-[35px]
+  }
+      .cool-button span, .sec-cool-button span{
+      @apply text-2xl text-black
+      }
+  
+      .paint{
+      @apply 2xl:mr-40 lg:mr-20 md:mr-12 z-10 translate-x-[-100px] duration-1000 opacity-0
+      }
+  
+      section img{
+      @apply border rounded-[2rem] 2xl:w-[512px] h-auto xl:w-[384px] lg:w-[350px] md:w-[300px]; 
+      }
+  
+      .club {
+      @apply 2xl:ml-48 lg:ml-28 md:ml-16 translate-x-[100px] duration-1000 opacity-0;
+      }
+
+      .dropdown{
+        @apply w-[102px] h-[25px] relative;
+    }
+    
+    .dropdown a {
+        @apply cursor-pointer relative font-normal text-base no-underline after:content-[''] after:absolute after:left-0 after:bottom-0 after:bg-red-600 after:w-full after:h-[2px] after:scale-x-0 after:origin-left after:duration-500 after:ease-in-out hover:after:-scale-x-[-1];
+}
+  
+  }
+
+html{
+    overflow-y: hidden;
+}
+
+
+.active{
+    display: flex;
+    opacity: 1;
+}
+
+.slide{
+    width: 18vw !important;
+}
+
+.hamburger img{
+    transition: all 500ms ease-in-out;
+}
+
+.ham-slide{
+    transform: rotate(180deg);
+    margin-left: 5rem;
+
+}
+
+.logo-slide{
+    display: none;
+}
+
+.profile-show{
+    display: flex;
+}
+
+.login-show{
+    display: flex;
+}

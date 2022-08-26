@@ -3,6 +3,8 @@ import Head from "./Layout/Head.astro"
 import Header from "./Components/Header.astro"
 import Footer from "./Components/Footer.astro"
 import Search from "./Components/Search.astro";
+
+import '../styles/global.css'
 ---
 
 
@@ -108,13 +110,6 @@ texts.forEach(text => {
 
 <style>
 
-@tailwind components;
-
-html{
-    overflow-y: hidden;
-}
-
-
 main{
     -ms-overflow-style: none;  /* IE and Opera */
     scrollbar-width: none;  /* Firefox */
@@ -137,46 +132,6 @@ border-radius: 10px;
 main::-webkit-scrollbar-thumb:hover {
 background: #000;  
 }
-
-@layer components {
-  main section {
-    @apply w-[100vw] h-[100vh] flex items-center justify-between;
-  }
-    .text-box {
-    @apply z-10 2xl:ml-40 lg:ml-28 md:ml-20 translate-y-[100px] duration-1000 opacity-0;
-    }
-
-    .sec-text-box{
-    @apply 2xl:ml-40 2xl:mr-20 md:mr-20 lg:ml-20 lg:mr-14
-    }
-
-   .big-text{
-    @apply font-semibold 2xl:text-4xl 2xl:leading-10 lg:text-2xl lg:leading-6 md:text-xl md:leading-6;
-   }
-   .small-text{
-    @apply lg:mt-8 font-normal lg:text-base lg:leading-6 md:mt-2 ;
-   }
-   .cool-button, .sec-cool-button {
-    @apply no-underline z-10 mt-3 lg:w-[315px] lg:h-[50px] border rounded-[25px] flex items-center justify-around duration-500 ease-in md:w-[250px] md:h-[35px]
-}
-    .cool-button span, .sec-cool-button span{
-    @apply text-2xl text-black
-    }
-
-    .paint{
-    @apply 2xl:mr-40 lg:mr-20 md:mr-12 z-10 translate-x-[-100px] duration-1000 opacity-0
-    }
-
-    section img{
-    @apply border rounded-[2rem] 2xl:w-[512px] h-auto xl:w-[384px] lg:w-[350px] md:w-[300px]; 
-    }
-
-    .club {
-    @apply 2xl:ml-48 lg:ml-28 md:ml-16 translate-x-[100px] duration-1000 opacity-0;
-    }
-
-}
-
 
 .main-section{
     background: linear-gradient(102.44deg, #DEFFEB 9.56%, #DBEFFF 43.85%, #C1D5FB 78.56%);

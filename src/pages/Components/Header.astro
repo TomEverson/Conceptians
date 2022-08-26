@@ -3,6 +3,8 @@
 import { getUser } from "@astro-auth/core";
 const user = getUser({ client: Astro });
 
+
+
 ---
 
 
@@ -28,7 +30,7 @@ const user = getUser({ client: Astro });
             </div>
             }
         </a>
-        <ul class="menu hidden flex-col items-center mt-5 opacity-0 gap-12 no-underline" id="menu">            
+        <ul class="menu flex-col items-center mt-5 opacity-0 gap-12 no-underline" id="menu">            
             <div class="dropdown"><a rel="prefetch" href="../blogs/">Blogs</a>                     
                     </div>
             <div class="dropdown"><a>Clubs</a>
@@ -47,17 +49,6 @@ const user = getUser({ client: Astro });
 
 <style>
 
-@tailwind components;
-
-@layer components{
-    .dropdown{
-        @apply w-[102px] h-[25px] relative;
-    }
-    
-    .dropdown a {
-        @apply cursor-pointer relative font-normal text-base no-underline after:content-[''] after:absolute after:left-0 after:bottom-0 after:bg-red-600 after:w-full after:h-[2px] after:scale-x-0 after:origin-left after:duration-500 after:ease-in-out hover:after:-scale-x-[-1];
-}
-}
 
 header{
     background: linear-gradient(102.44deg, #DEFFEB 9.56%, #DBEFFF 43.85%, #C1D5FB 78.56%);
@@ -73,37 +64,6 @@ header{
     font-family: 'Mulish', sans-serif;
 }
 
-
-.active{
-    display: flex;
-    opacity: 1;
-}
-
-.slide{
-    width: 18vw;
-}
-
-.hamburger img{
-    transition: all 500ms ease-in-out;
-}
-
-.ham-slide{
-    transform: rotate(180deg);
-    margin-left: 5rem;
-
-}
-
-.logo-slide{
-    display: none;
-}
-
-.profile-show{
-    display: flex;
-}
-
-.login-show{
-    display: flex;
-}
 
 
 
