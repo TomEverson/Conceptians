@@ -2,6 +2,8 @@
 import Head from "../Layout/Head.astro"
 import Header from "../Components/Header.astro"
 import Footer from "../Components/Footer.astro"
+import "../../styles/global.css"
+
 import { getArticle } from "../api/article"
 
 const request = decodeURI((Astro.url.pathname)).substring(7)
@@ -12,37 +14,38 @@ const article = await getArticle(request)
 const {title = article.title} = Astro.params;
 const { text = article.body.replace(/((#*))/gi, "").substring(0,250) } = Astro.props
 
+
+
 ---
 
 <Head title = {title} meta ={text} img="https://conceptians.org/img/blog.png">
 </Head>
 <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
 
-<body>
+<body class="overflow-y-hidden">
     <Header></Header>
-    <div class="pop-up d-flex flex-column">
-      <div class="lang justify-content-center align-items-center" id="eng-btn"><img src="img/english.png" alt=""></div>
-      <div class="lang justify-content-center align-items-center" id="mm-btn"><img src="img/myanmar.png" alt=""></div>
-      <div class="lang-btn d-flex justify-content-center align-items-center" id="lang-btn"><img src="img/language.png" alt=""></div>
+    <div class="pop-up felx flex-col">
+      <div class="lang items-center justify-center" id="eng-btn"><img src="img/english.png" alt=""></div>
+      <div class="lang items-center justify-center" id="mm-btn"><img src="img/myanmar.png" alt=""></div>
+      <div class="lang-btn flex items-center justify-center" id="lang-btn"><img src="img/language.png" alt=""></div>
     </div>
-    <main>
-      <div class="main-section container-sm mt-5 d-flex flex-column">
+    <main class="flex justify-center overflow-y-scroll h-[100%] md:h-[100%]">
+      <div class="blog-section h-[100%] flex flex-col container items-start mt-12">
     <h1>{article.title}</h1>
     <span class="mt-3 mb-3"></span>
-    <div class="d-flex mb-5 mt-4" style=" font-family: 'Mulish'; font-style: normal;">
-    <img src={article.photo} alt="" class="border border-white rounded-circle">
-    <div class="d-flex flex-column" style="margin-left: 2rem;">
+    <div class="flex mb-5 mt-4" style=" font-family: 'Mulish'; font-style: normal;">
+    <img src={article.photo} alt="" class="border rounded-full">
+    <div class="flex flex-col" style="margin-left: 2rem;">
     <p style="font-weight: 400;font-size: 24px;">{article.author}</p>
-    <div class="d-flex flex-column mt-2">
+    <div class="flex flex-col mt-2">
       <p class=" mb-1">{article.published}</p>
       <p class=" mb-0">{article.read}</p></div>
     </div>
   </div>
-    <div class="english-text" id="english-text">{article.body}
+    <div class="english-text flex flex-col gap-2" id="english-text">{article.body}
     </div>
     <div set:html={article.translate} class="myanmar-text" id="myanmar-text"></div>
   </div>
-  <Footer></Footer>
     </main>
     
 </body>
@@ -58,16 +61,9 @@ html{
 }
 
 body{
-  margin: 0;
-	width: 100vw;
   height: 100vh;
-  overflow-y: hidden;
-}
-
-main{
-  height: 100%;
-  overflow-y: scroll;
-  overflow-x: hidden;
+	margin: 0;
+	padding: 0;
 }
 
 main::-webkit-scrollbar {
@@ -85,7 +81,7 @@ background: #000;
 }
 
 
-.main-section h1{
+.blog-section h1{
   font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 700;
@@ -93,13 +89,13 @@ background: #000;
   line-height: 65px;
 }
 
-.main-section span{
+.blog-section span{
   width: 69px;
   height: 0px;
   border: 2px solid #5A4FF3;
 }
 
-.main-section img{
+.blog-section img{
   max-width: 120px;
   height: auto;
 }
@@ -155,6 +151,7 @@ background: #000;
   font-size: 18px;
   line-height: 160%;
 }
+
 
 .myanmar-text{
   display: none;

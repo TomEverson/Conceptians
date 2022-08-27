@@ -3,28 +3,34 @@
 @tailwind utilities;
 
 @layer components {
-    main section {
-      @apply w-[100vw] h-[100vh] flex items-center justify-between;
+    .main-section , .third-section {
+      @apply w-[100vw] h-[100vh] flex items-center justify-center md:flex-row flex-col-reverse md:justify-between;
     }
+
+    .sec-section , .fourth-section{
+        @apply w-[100vw] h-[100vh] flex items-center justify-center md:flex-row flex-col md:justify-between;
+    }
+
       .text-box {
-      @apply z-10 2xl:ml-40 lg:ml-28 md:ml-20 translate-y-[100px] duration-1000 opacity-0;
+      @apply z-10 2xl:ml-40 lg:ml-28 md:ml-16 translate-y-[100px] duration-1000 opacity-0 mt-8 md:mt-0 text-center md:text-left;
       }
   
       .sec-text-box{
-      @apply 2xl:ml-40 2xl:mr-20 md:mr-20 lg:ml-20 lg:mr-14
+      @apply 2xl:ml-40 2xl:mr-20 md:mr-20 lg:ml-20 lg:mr-14 mt-8 md:mt-0 text-center md:text-left;
       }
   
      .big-text{
-      @apply font-semibold 2xl:text-4xl 2xl:leading-10 lg:text-2xl lg:leading-6 md:text-xl md:leading-6;
+      @apply font-semibold text-lg 2xl:text-4xl 2xl:leading-10 lg:text-2xl lg:leading-6 md:text-xl md:leading-6 font-['Poppins'] md:text-left;
      }
      .small-text{
-      @apply lg:mt-8 font-normal lg:text-base lg:leading-6 md:mt-2 ;
+      @apply lg:mt-8 text-sm font-normal lg:text-base lg:leading-6 md:mt-2 font-['Mulish'] ;
      }
+
      .cool-button, .sec-cool-button {
-      @apply no-underline z-10 mt-3 lg:w-[315px] lg:h-[50px] border rounded-[25px] flex items-center justify-around duration-500 ease-in md:w-[250px] md:h-[35px]
+      @apply no-underline mx-0 w-[250px] z-10 lg:w-[315px] lg:h-[50px] border rounded-[25px] flex items-center justify-around duration-500 ease-in md:w-[250px] md:h-[35px] font-['Mulish']
   }
       .cool-button span, .sec-cool-button span{
-      @apply text-2xl text-black
+      @apply text-2xl text-black font-['Poppins'] hidden lg:block;
       }
   
       .paint{
@@ -32,7 +38,7 @@
       }
   
       section img{
-      @apply border rounded-[2rem] 2xl:w-[512px] h-auto xl:w-[384px] lg:w-[350px] md:w-[300px]; 
+      @apply border rounded-[2rem] 2xl:w-[512px] h-auto xl:w-[384px] lg:w-[350px] w-[300px]; 
       }
   
       .club {
@@ -55,32 +61,30 @@ html{
 
 
 .active{
-    display: flex;
-    opacity: 1;
+    display: flex !important;
+    opacity: 1 !important;
 }
 
 .slide{
-    width: 18vw !important;
+    width: 15rem !important;
 }
 
 .hamburger img{
-    transition: all 500ms ease-in-out;
+    transition: all 500ms ease-in-out !important;
 }
 
 .ham-slide{
-    transform: rotate(180deg);
-    margin-left: 5rem;
-
+    transform: rotate(180deg) !important;
 }
 
 .logo-slide{
-    display: none;
+    display: none !important;
 }
 
 .profile-show{
-    display: flex;
+    display: flex !important;
 }
 
 .login-show{
-    display: flex;
+    display: flex !important;
 }

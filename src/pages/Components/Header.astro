@@ -9,7 +9,7 @@ const user = getUser({ client: Astro });
 
 
 
-<header class="absolute h-screen xl:w-[6vw] border border-white z-20 duration-500 ease-in-out translate-x-[-100px]">
+<header class="absolute md:h-screen w-[12vw] md:w-[4vw] border border-white z-20 duration-500 ease-in-out translate-x-[-100px]">
     <nav class="flex items-center justify-between flex-col h-screen py-[3vh]" id="navbar">
         <div class="logo" id="logo">
             <a href="https://conceptians.org/">
@@ -23,7 +23,7 @@ const user = getUser({ client: Astro });
                 {user.user.name}
                 </p>
             :
-           <div class="login items-center justify-center hidden xl:w-[200px] xl:h-[50px] lg:w-[150px] md:w-[100px] md:py-1 border rounded-full bg-fuchsia-400" id="login">
+           <div class="login items-center justify-center hidden xl:w-[200px] xl:h-[50px] lg:w-[150px] w-[100px] py-1 border rounded-full bg-fuchsia-400" id="login">
             <a href="../login" class="text-xl no-underline">
                 Login
                 </a>
@@ -42,7 +42,7 @@ const user = getUser({ client: Astro });
             <div class="dropdown"><a>About Us</a>
                 </div>
         </ul>
-        <div class="hamburger" id="menu-button"><img id="hamburger" src="img/arrow.png"></div>
+        <div class="hamburger" id="menu-button"><img id="hamburger" src="img/arrow.png" class="w-[20px] h-auto md:w-[30px]"></div>
     </nav>
 
 </header>
