@@ -9,7 +9,7 @@ const user = getUser({ client: Astro });
 
 
 
-<header class="absolute md:h-screen w-[12vw] md:w-[4vw] border border-white z-20 duration-500 ease-in-out translate-x-[-100px]">
+<header class="hidden lg:block absolute md:h-screen w-[12vw] md:w-[4vw] border border-white z-20 duration-500 ease-in-out translate-x-[-100px]">
     <nav class="flex items-center justify-between flex-col h-screen py-[3vh]" id="navbar">
         <div class="logo" id="logo">
             <a href="https://conceptians.org/">
@@ -24,7 +24,7 @@ const user = getUser({ client: Astro });
                 </p>
             :
            <div class="login items-center justify-center hidden xl:w-[200px] xl:h-[50px] lg:w-[150px] w-[100px] py-1 border rounded-full bg-fuchsia-400" id="login">
-            <a href="../login" class="text-xl no-underline">
+            <a href="../create-account" class="text-xl no-underline">
                 Login
                 </a>
             </div>
@@ -46,6 +46,24 @@ const user = getUser({ client: Astro });
     </nav>
 
 </header>
+
+
+<header class="block lg:hidden absolute w-screen bottom-0 left-0 border border-white z-20 overflow-hidden">
+    <nav class="flex items-center justify-center flex-row w-screen" id="navbar">
+        <ul class="menu flex flex-row items-center no-underline" id="menu">            
+            <div class="dropdown flex justify-center"><a rel="prefetch" href="../blogs/">Blogs</a>                     
+                    </div>
+            <div class="dropdown flex justify-center"><a>Clubs</a>
+                </div>
+            <div class="dropdown flex justify-center"><a>Podcasts</a>
+                </div>
+            <div class="dropdown flex justify-center"><a>Learn</a>
+                </div>
+        </ul>
+    </nav>
+
+</header>
+
 
 <style>
 

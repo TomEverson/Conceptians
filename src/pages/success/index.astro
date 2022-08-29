@@ -1,0 +1,59 @@
+---
+import Head from "../../Layout/Head.astro"
+
+import "../../styles/global.css"
+---
+
+<Head title = "Success" meta="Success" img="https://conceptians.org/img/conceptians.png">
+</Head>
+
+
+<body>
+<main class="flex flex-row w-[100vw] h-[100vh]">
+
+<div class="sign-in w-[50%] h-[100%] flex flex-col justify-center items-center">
+  <div class="flex flex-col justify-evenly h-[100%]">
+  <div>
+  <h1 class="font-black leading-10" style="font-family: 'Noto Sans'; font-size: 42px;">Success</h1>
+  <p class="mt-4 text-sm" style="font-family: 'Mulish';">You have created your account</p>
+  <p>Click This Link To <a href="../log-in" style="color: #5A4FF3;">Log-In</a></p>
+</div>
+
+  
+  </div>
+</div>
+
+
+
+<div class="logo w-[50%] h-[100%] flex items-center justify-center">
+    <img src="img/login.png" alt="login">
+</div>
+
+
+</main>
+
+<style>
+
+
+input{
+  margin: 0.5rem 0rem;
+  padding-left: 1rem;
+  width: 397px;
+  height: 51px;
+}
+
+
+
+
+.submit , label{
+  font-family: 'Mulish';
+}
+
+.logo{
+    background-color: #496076;
+}
+
+
+
+</style>   
+</body>

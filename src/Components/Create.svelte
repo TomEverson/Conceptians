@@ -3,17 +3,30 @@
 import axios from "axios"
 import z from 'zxcvbn'
 
-let json = {}
 let password = ''
-let email = ''
-let bool = false
+let json = {}
 
-function onclick(e){
+async function onclick(e){
   e.preventDefault()
+  let data = "";
   const formData = new FormData(e.target);
   json = Object.fromEntries(formData.entries())
-  console.log(json)
+  let email = json.email
+  await axios.post('http://127.0.0.1:8000/verification', formData , {headers: {'Accept': "x-www-form-urlencoded"}})
+    .then(response =>(
+      data = response.data
+    )
+    )
+    .catch(error =>(
+      console.log(error)
+    ));
+
+    if (data == "Confirm"){
+      sessionStorage.setItem("email", email)
+      console.log(email)
+    }
 }
+
 
 $: secure = z(password).score > 3
 
@@ -36,17 +49,14 @@ $: secure = z(password).score > 3
   <input class="border border-black rounded-xl" name="name" type="text" placeholder="Enter Your Name">
   <label for="email" class="font-black text-lg">Email:</label>
   <input class="border border-black rounded-xl" name="email" type="email" placeholder="Enter Your Email">
-  <label for="email" class="font-black text-lg">Password:</label>
+  <label for="password" class="font-black text-lg">Password:</label>
   <p style={secure?'display:none':'color:red'}>{secure ? 'Strong' : 'Weak'} password</p>
   <input class="border border-black rounded-xl" name="password" type="password" placeholder="Password" bind:value={password}>
-  <label for="email" class="font-black text-lg">Confirm Password:</label>
-  <p style={secure?'display:none':'color:red'}>{secure ? 'Strong' : 'Weak'} password</p>
-  <input class="border border-black rounded-xl" name="confirm-password" id="confirm-password"  type="password" placeholder="Confirm Password" bind:value={password}>
-  <button disabled={!secure} type="submit" class="submit border border-black rounded-xl text-2xl font-normal leading-10 w-[400px] h-[59px] flex flex-row items-center justify-center bg-gray-400 disabled:bg-red-800" >
+  <button disabled={!secure} type="submit" class="submit border border-black rounded-xl text-2xl font-normal leading-10 w-[400px] h-[59px] flex flex-row items-center justify-center bg-gray-400 disabled:bg-red-400" >
   Sign-Up
   </button>
   </form>
-  <p>Already have an account? <a href="../blogs/" style="color: #5A4FF3;">Sign-Up</a></p>
+  <p>Already have an account? <a href="../blogs/" style="color: #5A4FF3;">Log-In</a></p>
   </div>
 </div>
 

@@ -1,7 +1,6 @@
 ---
-import Head from "../Layout/Head.astro"
-import Header from "../Components/Header.astro"
-import Footer from "../Components/Footer.astro"
+import Head from "../../Layout/Head.astro"
+import Header from "../../Components/Header.astro"
 
 import "../../styles/global.css"
 
@@ -33,7 +32,7 @@ const articles = await response.json();
             <li class="container mt-5 mb-5"><a rel="prefetch" href={article.title} class="no-underline">
               <h4>{article.title}</h4>
               <p class="d-flex gap-3"><span>{article.published}</span><span>{article.read}</span></p>
-              <a href={article.category} class="text-decoration-none"><button type="button" class="border rounded-md border-blue-400 py-2 px-2">{article.category}</button></a>
+              <a href="#" class="text-decoration-none"><button type="button" class="border rounded-md border-blue-400 py-2 px-2">{article.category}</button></a>
               <div set:text={article.body} class="eng-text mb-3 overflow-y-hidden" id="eng-text"></div>
               <a href={article.title}>Read More...</a>
               </a>
