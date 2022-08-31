@@ -1,8 +1,15 @@
 ---
+import { getUser } from "../pages/api/getUser";
+import { getJwt } from "../pages/utils/getJwt";
+const cookie = Astro.request.headers.get('cookie')
 
-import { getUser } from "@astro-auth/core";
-const user = getUser({ client: Astro });
+let logInfo;
+let user;
 
+if (cookie){
+    logInfo = await getJwt(cookie)
+    user = await getUser(logInfo.id)
+}
 
 
 ---
@@ -16,11 +23,11 @@ const user = getUser({ client: Astro });
                 <img class="mt-2" src="img/C-logo.png" alt="logo-image">
             </a>
              </div>
-        <a class="profile flex-column items-center justify-center cursor-pointer no-underline hidden duration-500" id="profile" href={user? "../user" : "#"}>
-            <img src={user? user.user.image : "img/none.png"} alt="user" class="border rounded-full w-[75px] h-auto">
+        <a class="profile flex-col items-center justify-center cursor-pointer no-underline hidden duration-500" id="profile" href={user? "../user" : "#"}>
+            <img src={user? user.avatar : "img/none.png"} alt="user" class="border rounded-full w-[75px] h-auto">
             {user? 
             <p class="username mt-3 font-semibold text-2xl">
-                {user.user.name}
+                {user.name}
                 </p>
             :
            <div class="login items-center justify-center hidden xl:w-[200px] xl:h-[50px] lg:w-[150px] w-[100px] py-1 border rounded-full bg-fuchsia-400" id="login">

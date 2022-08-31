@@ -23,7 +23,7 @@ async function onclick(e){
 
     if (data == "Confirm"){
       sessionStorage.setItem("email", email)
-      console.log(email)
+      window.location.href = "../verify"
     }
 }
 
@@ -56,7 +56,7 @@ $: secure = z(password).score > 3
   Sign-Up
   </button>
   </form>
-  <p>Already have an account? <a href="../blogs/" style="color: #5A4FF3;">Log-In</a></p>
+  <p>Already have an account? <a href="../login" style="color: #5A4FF3;">Log-In</a></p>
   </div>
 </div>
 

@@ -57,3 +57,13 @@ input{
 
 </style>   
 </body>
+
+<script is:inline>
+
+email = sessionStorage.getItem("email");
+
+if (!email){
+  window.location.href = "../create-account"
+}
+
+</script>

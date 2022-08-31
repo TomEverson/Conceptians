@@ -3,7 +3,7 @@ import Head from "../../Layout/Head.astro"
 import Header from "../../Components/Header.astro"
 import "../../styles/global.css"
 
-import { getArticle } from "../../api/article"
+import { getArticle } from "../api/article"
 
 const request = decodeURI((Astro.url.pathname)).substring(7)
 const article = await getArticle(request)

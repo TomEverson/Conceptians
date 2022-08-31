@@ -1,10 +1,14 @@
 <script>
- 
-let email = sessionStorage.getItem("email");
+import {onMount} from 'svelte'
 
-if (!email){
-  window.location.href = "../create-account"
+let email = ""
+
+onMount(() => {
+  email = sessionStorage.getItem("email");
+  if (!email){
+    window.location.href = "../create-account"
 }
+})
 
 async function onclick(e){
   e.preventDefault()
@@ -34,7 +38,7 @@ async function onclick(e){
         <p>Email has been sent!!</p>
       <form class="flex flex-col justify-evenly w-[400px] text-left" method="post" on:submit={onclick}>
       <label for="email" class="font-black text-lg">Email:</label>
-      <input disabled class="border border-black rounded-xl" name="email" id="email" type="text" placeholder="Email" bind:value={email}>
+      <input class="border border-black rounded-xl" name="email" id="email" type="text" placeholder="Email" bind:value={email}>
       <label for="code" class="font-black text-lg">Please Enter Your Verification Code:</label>
       <input class="border border-black rounded-xl" name="code" id="code" type="text" placeholder="Verification">
       <button type="submit" class="submit border border-black rounded-xl text-2xl font-normal leading-10 w-[400px] h-[59px] flex flex-row items-center justify-center bg-gray-400 disabled:bg-red-400" >
@@ -75,5 +79,4 @@ input{
     }
     
     
-    
-    </style>
+</style>
