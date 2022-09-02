@@ -1,11 +1,24 @@
 ---
 import Head from "../../Layout/Head.astro"
 import Header from "../../Components/Header.astro"
-
+import { getUser } from "../api/getUser";
+import { getJwt } from "../utils/getJwt";
+const cookie = Astro.request.headers.get('cookie')
 import "../../styles/global.css"
+
+let logInfo;
+let user= {};
+
+if (cookie){
+    logInfo = await getJwt(cookie)
+    user = await getUser(logInfo.id)
+}
+
 
 const response = await fetch(import.meta.env.PUBLIC_BLOG);
 const articles = await response.json();
+
+console.log(user)
 
 ---
 <Head title = "Blogs" meta="Blogs - free posts, guides, tutorials, articles and newsletters to help you learn more about academic pathways." img="https://conceptians.org/img/blog.png">
@@ -15,6 +28,7 @@ const articles = await response.json();
 <body class="flex flex-col ">
     <Header></Header>
     <main class="w-[100vw] h-[100vh] overflow-x-hidden">
+      {user.admin?<div class="absolute border rounded-full w-[50px] h-[50px] bottom-4 right-4 bg-red-800"></div>:<div></div>}
       <div class="search-section flex flex-col items-center justify-center w-[100%] h-[75%] bg-no-repeat bg-cover translate-y-[500px] duration-500 opacity-0" id="search-section">
         <div class="search-text text-center">
           <h1>Conceptians Blogs</h1>

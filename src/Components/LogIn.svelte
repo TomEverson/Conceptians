@@ -4,17 +4,17 @@ import axios from "axios"
 let json = {}
 
 async function onclick(e){
-  let data = "";
+  let info = {};
   const formData = new FormData(e.target);
   json = Object.fromEntries(formData.entries())
-  await axios.post('http://127.0.0.1:8000/login', json , {headers: {'Accept': "application/json"}})
+  await axios.post('http://127.0.0.1:8000/login', json ,{withCredentials: true} )
     .then(response =>(
-      data = response.data
+      info = response.data
     )
     )
   
-    if (data == "Success"){
-      window.location.href = "/"
+    if (info.status == "Success"){
+      localStorage.setItem('token', info.token)
     }
 }
 
