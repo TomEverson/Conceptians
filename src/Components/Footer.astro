@@ -4,78 +4,92 @@ const emails = import.meta.env.PUBLIC_EMAIL;
 
 ---
 
-<footer class="text-center text-lg-start pt-5">
-    <div class="container-sm py-0">
-        <div class="row justify-content-between">
-            <div class="col-12 col-md-3 mx-auto mt-3">
-                <div>
-                    <img src="img/C.png" alt="">
-                    <p>Students lead organization.</p>
-                </div>
-            </div>
-            <div class="col-12 col-md-3 mx-auto mt-3">
-                <h6 class="mb-4 font-weight-bold">Studio</h6>
-                <p class="">
-                    <a class="text-decoration-none text-dark" href="#">About Us</a>
-                </p>
-                <p>
-                    <a class="text-decoration-none text-dark" href="#">Carrers</a>
-                </p>
-                <p>
-                    <a class="text-decoration-none text-dark" href="#">Contact Us</a>
-                </p>
-            </div>
-            <div class="col-12 col-md-3 mx-auto mt-3">
-                <h6 class="mb-4 font-weight-bold">Contact Us</h6>
-                <p class="">
-                    <a class=" text-decoration-none text-dark" href="mailto:info@conception.com">info@coneptians.org</a>
-                </p>
-                <p class="">
-                    <a class="text-decoration-none text-dark" href="tel:+959677888112">+959-677-888-112</a>
-                </p>
-                <p>
-                    3500 Rock Hole Rd<br>
-                    Palo Alto, NYC
-                </p>
-            </div>
+<footer class="font-medium text-sm leading-8 border bg-cover w-full pt-[10px] md:pt-[80px]">
+    <div>
+       <!-- container -->
+       <div class="grid grid-cols-1 text-center md:text-left md:grid-cols-12 ">
+           <!-- part 1 -->
+           <div class="md:col-span-4 md:col-start-2">
+               <div>
+                   <img class="m-auto md:m-1.5 w-[200px]"src="../C.png" alt="">
+                   <p class="s-l-o">Students lead organization.</p>
+               </div>
+           </div>
+           <!-- part 2 -->
+           <div class="md:col-span-2">
+               <h6 class="font-bold text-sm mb-[12px]">Studio</h6>
+               <p >
+                   <a class="hover:text-gray-600" href="#">About Us</a>
+               </p>
+               <p>
+                   <a class="hover:text-gray-600" href="#">Carrers</a>
+               </p>
+               <p>
+                   <a class="hover:text-gray-600" href="#">Contact Us</a>
+               </p>
+           </div>
+           <!-- part 3 -->
+           <div class="md:col-span-2">
+               <h6 class="font-bold text-sm mb-[12px]">Contact Us</h6>
+               <p>
+                   <a class="hover:text-gray-600" href="mailto:info@conception.com">info@coneptians.org</a>
+               </p>
+               <p>
+                   <a class="hover:text-gray-600" href="tel:+959677888112">+959-677-888-112</a>
+               </p>
+               <p class="leading-5">
+                   3500 Rock Hole Rd<br>
+                   Palo Alto, NYC
+               </p>
+           </div>
 
-            
-
-            <hr class="d-md-none d-block">
-            <div class="col-12 col-md-3 mx-auto mt-3">
-                <h6 class="mb-4 font-weight-bold">Stay UpToDate</h6>
-                <p class="">
-                    <span>Follow our weekly newsletter</span>
-                    <form id="form-submit" class="input-group mb-3">
-                        <input type="email" id="sm-textbox" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="button-addon2" required>
-                        <button class="btn btn-outline-secondary" type="submit">
-                            <svg xmlns="" width="16" height="16" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
-                                <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
-                              </svg>
-                        </button>
-                    </form>
-                </p>
-                <p>
-                    <p>Follow Us:</p>
-                    <a href="" class="me-4">
-                        <img class="bi-facebook" src="img/facebook.png" alt="">
-                    </a>
-                    <a href="" class="me-4">
-                        <img class="bi-youtube" src="img/youtube.png" alt="">
-                    </a>
-                    <a href="" class="me-4">
-                        <img class="bi-discord" src="img/discord.png" alt="">
-                    </a>
-                </p>
-            </div>
-        </div>
-    </div>
-    <!-- Copyright -->
-    <div class="copyright text-center p-3 text-uppercase mt-5">
-        CopyRighted © 2022 : <a class="text-decoration-none text-dark" href="#">Conceptians</a>
-    </div>
-    <!-- Copyright -->
+           <!-- part 4 -->
+           <div class="md:col-span-2">
+               <h6 class="font-bold text-sm mb-[12px]">Stay UpToDate</h6>
+               <p class="">
+                   <span>Follow our weekly newsletter</span>
+                   <form id="form-submit" class="grid grid-cols-12">
+                       <input type="email" id="sm-textbox" class="form-control col-span-9 col-start-2 md:col-start-1 shadow rounded" placeholder="Email" aria-label="Email" aria-describedby="button-addon2" required>
+                       <button class=" shadow rounded col-span-1 md:col-span-2 hover:bg-gray-500 focus:bg-gray-700" type="submit">
+                           <svg xmlns="2" width="16" height="16" fill="currentColor" class="hover:fill-white m-auto" viewBox="0 0 16 16">
+                               <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
+                           </svg>
+                       </button> 
+                   </form>
+               </p>
+               <p >
+                   <p >Follow Us:</p>
+                   <a href="" class="inline-block">
+                       <img class="bi-facebook w-[32px] h-[32px] hover:rotate-[360deg] transition duration-[1s]" src="img/facebook.png" alt="">
+                   </a>
+                   <a href="" class="inline-block">
+                       <img class="bi-youtube w-[32px] h-[32px] hover:rotate-[360deg] transition duration-[1s]" src="img/youtube.png" alt="">
+                   </a>
+                   <a href="" class="inline-block">
+                       <img class="bi-discord w-[32px] h-[32px] hover:rotate-[360deg] transition duration-[1s]" src="img/discord.png" alt="">
+                   </a>
+               </p>
+           </div>
+           <!-- part-4 -->
+       </div>
+   </div>
+   <!-- Copyright -->
+   <div class="text-center text-xs m-5 md:mb-1 text-zinc-700">
+       CopyRighted © 2022 : <a class="" href="#">Conceptians</a>
+   </div>
+   <!-- Copyright -->
 </footer>
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap');
+    
+    footer{
+        background-image: linear-gradient(180deg, #D4FDE4 0%, #C1DFFC 100%);
+        font-family: 'Cabin';
+    }
+</style>
+
 
 <script is:inline define:vars={{ emails }}>
 
@@ -100,40 +114,3 @@ const emails = import.meta.env.PUBLIC_EMAIL;
     });
     
 </script>
-
-<style>
-
-footer{
-    border-top: 1px solid rgba(0,0,0,.12);
-    background-image: linear-gradient(180deg, #D4FDE4 0%, #C1DFFC 100%);
-    background-size: cover;
-    font-family: 'Cabin';
-    font-style: normal;
-    font-weight: 400;    
-    line-height: 160%;
-    width: 100vw;
-    color: #000;
-    height: 60%;
-}    
-
-.bi-facebook, .bi-youtube, .bi-discord{
-    width: 32px;
-    height: 32px;
-    transition: transform 1s ease-in-out;
-}
-
-
-.bi-facebook:hover, .bi-youtube:hover, .bi-discord:hover{
-    transform: rotate(360deg);
- }
-
- @media (max-width: 767px) {
-    footer{
-        padding-top: 1rem !important;
-    }
-
-    .copyright{
-        margin: 1rem 0rem 3rem 0rem !important;
-    }
-}
-</style>

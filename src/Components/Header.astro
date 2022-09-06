@@ -5,15 +5,15 @@ const cookie = Astro.request.headers.get('cookie')
 
 let logInfo;
 let user;
+let id;
 
 if (cookie){
     logInfo = await getJwt(cookie)
     user = await getUser(logInfo.id)
+    id = logInfo.id
 }
 
 ---
-
-
 
 <header class="hidden lg:block absolute md:h-screen w-[12vw] md:w-[4vw] border border-white z-20 duration-500 ease-in-out translate-x-[-100px]">
     <nav class="flex items-center justify-between flex-col h-screen py-[3vh]" id="navbar">
@@ -55,20 +55,22 @@ if (cookie){
 
 
 <header class="block lg:hidden absolute w-screen bottom-0 left-0 border border-white z-20 overflow-hidden">
-    <nav class="flex items-center justify-center flex-row w-screen" id="navbar">
-        <ul class="menu flex flex-row items-center no-underline" id="menu">            
-            <div class="dropdown flex justify-center"><a rel="prefetch" href="../blogs/">Blogs</a>                     
-                    </div>
-            <div class="dropdown flex justify-center"><a>Clubs</a>
+    <nav class="flex items-center justify-center flex-row w-screen h-[10vh]" id="navbar">
+        <ul class="menu flex flex-row items-center justify-between w-[100%] no-underline" id="menu">            
+            <div class="w-[15vw] h-full border dropdown flex justify-center"><a class="w-full" rel="prefetch" href="../blogs/"><img src="img/icon1.png"></a>                     
                 </div>
-            <div class="dropdown flex justify-center"><a>Podcasts</a>
+            <div class="w-[15vw] h-full dropdown flex justify-center"><a><img class="w-full" src="img/icon2.png"></a>
                 </div>
-            <div class="dropdown flex justify-center"><a>Learn</a>
+            <div class="w-[15vw] h-full dropdown flex justify-center"><a><img class="w-full" src="img/icon3.png"></a>
+                </div>
+            <div class="w-[15vw] h-full dropdown flex justify-center"><a><img class="w-full" src="img/icon4.png"></a>
                 </div>
         </ul>
     </nav>
 
 </header>
+
+
 
 
 <style>
@@ -93,7 +95,11 @@ header{
 
 </style>
 
-<script is:inline>  
+<script is:inline define:vars={{id}}>
+    if (id) {
+        localStorage.setItem("id", id)
+    }
+
     const header = document.querySelector('header')
 
     const menu_button = document.getElementById('menu-button');

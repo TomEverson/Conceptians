@@ -3,17 +3,18 @@ import Head from "../../Layout/Head.astro"
 import Header from "../../Components/Header.astro"
 import "../../styles/global.css"
 
-import { getArticle } from "../api/article"
+import { getArticle } from "../api/getArticle"
 
 const request = decodeURI((Astro.url.pathname)).substring(7)
 const article = await getArticle(request)
 
 
 
+
 const {title = article.title} = Astro.params;
-const { text = article.body.replace(/((#*))/gi, "").substring(0,250) } = Astro.props
+const { text = article.body.replace(/[#*\\]/gi, "").substring(0,250)} = Astro.props
 
-
+console.log(article)
 
 ---
 
@@ -33,9 +34,9 @@ const { text = article.body.replace(/((#*))/gi, "").substring(0,250) } = Astro.p
     <h1>{article.title}</h1>
     <span class="mt-3 mb-3"></span>
     <div class="flex mb-5 mt-4" style=" font-family: 'Mulish'; font-style: normal;">
-    <img src={article.photo} alt="" class="border rounded-full">
+    <img src={article.author.avatar} alt="" class="border rounded-full">
     <div class="flex flex-col" style="margin-left: 2rem;">
-    <p style="font-weight: 400;font-size: 24px;">{article.author}</p>
+    <p style="font-weight: 400;font-size: 24px;">{article.author.name}</p>
     <div class="flex flex-col mt-2">
       <p class=" mb-1">{article.published}</p>
       <p class=" mb-0">{article.read}</p></div>
@@ -43,7 +44,7 @@ const { text = article.body.replace(/((#*))/gi, "").substring(0,250) } = Astro.p
   </div>
     <div class="english-text flex flex-col gap-8" id="english-text">{article.body}
     </div>
-    <div set:html={article.translate} class="myanmar-text" id="myanmar-text"></div>
+    <div class="myanmar-text" id="myanmar-text">{article.translate}</div>
   </div>
   <div class="hidden w-[25%] h-[100%] border-l border-black" style="background: linear-gradient(180deg, rgba(222, 255, 235, 0.23) 0%, rgba(222, 255, 235, 0) 100%);">
 
@@ -68,18 +69,13 @@ body{
 	padding: 0;
 }
 
+main{
+    -ms-overflow-style: none;  /* IE and Opera */
+    scrollbar-width: none;  /* Firefox */
+}
+
 main::-webkit-scrollbar {
-width: 7px;
-height: 3px;
-}
-
-main::-webkit-scrollbar-thumb {
-background: gray;  
-border-radius: 10px;
-}
-
-main::-webkit-scrollbar-thumb:hover {
-background: #000;  
+    display: none;
 }
 
 

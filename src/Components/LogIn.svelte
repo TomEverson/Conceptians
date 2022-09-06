@@ -7,14 +7,13 @@ async function onclick(e){
   let info = {};
   const formData = new FormData(e.target);
   json = Object.fromEntries(formData.entries())
-  await axios.post('http://127.0.0.1:8000/login', json ,{withCredentials: true} )
+  await axios.post('/.netlify/functions/setCookie', json , {withCredentials: true})
     .then(response =>(
       info = response.data
     )
     )
-  
-    if (info.status == "Success"){
-      localStorage.setItem('token', info.token)
+    if (info.message == "Success"){
+      window.location.href = '/'
     }
 }
 
