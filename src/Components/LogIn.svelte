@@ -10,7 +10,7 @@ async function onclick(e){
   let info = {};
   const formData = new FormData(e.target);
   json = Object.fromEntries(formData.entries())
-  await axios.post(`${import.meta.env.BACKEND}/login`, json , {withCredentials: true})
+  await axios.post("https://conceptians.fly.dev/login", json , {withCredentials: true})
     .then(response =>(
       info = response.data
     )
