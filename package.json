@@ -10,14 +10,9 @@
   },
   "devDependencies": {
     "@astrojs/netlify": "^1.0.1",
-    "@astrojs/react": "^0.4.3",
-    "@astrojs/vercel": "^0.4.0",
     "astro": "^1.0.7"
   },
   "dependencies": {
-    "@astro-auth/client": "^1.0.5",
-    "@astro-auth/core": "^1.0.12",
-    "@astro-auth/providers": "^1.0.6",
     "@astrojs/cloudflare": "^1.0.2",
     "@astrojs/prefetch": "^0.0.7",
     "@astrojs/svelte": "^1.0.0",

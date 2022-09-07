@@ -3,8 +3,8 @@ import Head from "../../Layout/Head.astro"
 import Header from "../../Components/Header.astro"
 import { getUser } from "../api/getUser";
 import { getJwt } from "../utils/getJwt";
-const cookie = Astro.request.headers.get('cookie')
 import "../../styles/global.css"
+const cookie = Astro.request.headers.get('cookie')
 
 let logInfo;
 let user= {};
