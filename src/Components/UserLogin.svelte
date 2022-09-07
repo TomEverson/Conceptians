@@ -10,7 +10,7 @@ async function onclick(e){
   let info = {};
   const formData = new FormData(e.target);
   json = Object.fromEntries(formData.entries())
-  await axios.post("./netlify/functions/setCookie", json , {withCredentials: true})
+  await axios.post("/.netlify/functions/setCookie", json , {withCredentials: true})
     .then(response =>(
       info = response.data
     )
