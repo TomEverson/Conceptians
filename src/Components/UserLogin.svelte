@@ -10,13 +10,13 @@ async function onclick(e){
   let info = {};
   const formData = new FormData(e.target);
   json = Object.fromEntries(formData.entries())
-  await axios.post("https://conceptians.fly.dev/login", json , {withCredentials: true})
+  await axios.post("./netlify/functions/setCookie", json , {withCredentials: true})
     .then(response =>(
       info = response.data
     )
     )
     if (info.status == "Success"){
-      user = await jwt_decode(info.token)
+      user = await jwt_decode(info.jwt_token)
       localStorage.setItem("token", user.id)
       window.location.href = '/'
     }
