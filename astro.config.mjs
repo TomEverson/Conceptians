@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import netlify from '@astrojs/netlify/functions';
+import netlify from '@astrojs/netlify';
 import prefetch from '@astrojs/prefetch';
 import svelte from '@astrojs/svelte';
 import tailwind from '@astrojs/tailwind';
