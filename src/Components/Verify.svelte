@@ -14,7 +14,7 @@ async function onclick(e){
   e.preventDefault()
   let data = "";
   const formData = new FormData(e.target);
-  await axios.post('http://127.0.0.1:8000/verification/verify', formData , {headers: {'Accept': "x-www-form-urlencoded"}})
+  await axios.post(`${import.meta.env.BACKEND}/verification/verify`, formData , {headers: {'Accept': "x-www-form-urlencoded"}})
     .then(response =>(
       data = response.data
     )
