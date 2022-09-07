@@ -16,7 +16,7 @@ async function onclick(e){
     )
     )
     if (info.status == "Success"){
-      user = await jwt_decode(info.jwt_token)
+      user = await jwt_decode(info.token)
       localStorage.setItem("token", user.id)
       window.location.href = '/'
     }
