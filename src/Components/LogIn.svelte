@@ -1,18 +1,22 @@
 <script>
-
 import axios from "axios"
+import jwt_decode from "jwt-decode";
+
 let json = {}
+let user = {}
 
 async function onclick(e){
   let info = {};
   const formData = new FormData(e.target);
   json = Object.fromEntries(formData.entries())
-  await axios.post('/.netlify/functions/setCookie', json , {withCredentials: true})
+  await axios.post(`${import.meta.env.BACKEND}/login`, json , {withCredentials: true})
     .then(response =>(
       info = response.data
     )
     )
-    if (info.message == "Success"){
+    if (info.status == "Success"){
+      user = await jwt_decode(info.token)
+      localStorage.setItem("token", user.id)
       window.location.href = '/'
     }
 }

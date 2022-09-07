@@ -5,12 +5,10 @@ const cookie = Astro.request.headers.get('cookie')
 
 let logInfo;
 let user;
-let id;
 
 if (cookie){
     logInfo = await getJwt(cookie)
     user = await getUser(logInfo.id)
-    id = logInfo.id
 }
 
 ---
@@ -95,11 +93,7 @@ header{
 
 </style>
 
-<script is:inline define:vars={{id}}>
-    if (id) {
-        localStorage.setItem("id", id)
-    }
-
+<script is:inline>
     const header = document.querySelector('header')
 
     const menu_button = document.getElementById('menu-button');
