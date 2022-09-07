@@ -1,12 +1,11 @@
 const axios = require('axios')
 const cookie = require('cookie')
-require('dotenv').config()
 
 let info = {};
 
 exports.handler = async function (event) {
     let json = JSON.parse(event.body)
-    await axios.post(`${process.env.BACKEND}/login`, json, {withCredentials: true})
+    await axios.post(`https://conceptians.fly.dev/login`, json, {withCredentials: true})
     .then(response => (
       info = response.data
     ))
