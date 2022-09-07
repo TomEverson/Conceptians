@@ -1,6 +1,5 @@
 const axios = require('axios')
 const cookie = require('cookie')
-require('dotenv').config()
 
 let info = {};
 
